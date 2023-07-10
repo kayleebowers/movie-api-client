@@ -1,6 +1,7 @@
 import {useState} from "react";
 
 export const MainView = () => {
+    //set movies state to array
     const [movies, setMovies] = useState([
         {
             id: 1,
@@ -48,4 +49,13 @@ export const MainView = () => {
             Featured: false
         }
     ])
+
+    //return list of movies
+    return (
+        <div>
+            {movies.map((movie) => {
+                return <div>{movie.Title}</div>;
+            })}
+        </div>
+    )
 }
