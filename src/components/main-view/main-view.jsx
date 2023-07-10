@@ -2,6 +2,7 @@ import {useState} from "react";
 
 //import child components
 import { MovieCard } from "../movie-card/movie-card";
+import { MovieView } from "../movie-view/movie-view";
 
 export const MainView = () => {
     //set movies state to array
