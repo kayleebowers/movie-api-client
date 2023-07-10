@@ -1,7 +1,7 @@
 export const MovieCard = ({movie}) => {
     return (
         <div>
-            {book.title}
+            {movie.Title}
         </div>
     );
 }

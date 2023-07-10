@@ -1,5 +1,8 @@
 import {useState} from "react";
 
+//import child components
+import { MovieCard } from "../movie-card/movie-card";
+
 export const MainView = () => {
     //set movies state to array
     const [movies, setMovies] = useState([
@@ -54,12 +57,12 @@ export const MainView = () => {
     if (movies.length === 0) {
         return <div>The list is empty!</div>;
     }
-    
+
     //return list of movies
     return (
         <div>
             {movies.map((movie) => {
-                return <div>{movie.Title}</div>;
+                return <MovieCard movie={movie} />;
             })}
         </div>
     )
