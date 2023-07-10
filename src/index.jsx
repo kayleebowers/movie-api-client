@@ -1,4 +1,4 @@
-import { createRoot } from 'react-dom/client';
+import { createRoot } from "react-dom/client";
 
 //import MainView component
 import { MainView } from "./components/main-view/main-view";
@@ -8,7 +8,7 @@ import "./index.scss";
 
 //main component
 const App = () => {
-    return <MainView />
+  return <MainView />;
 };
 
 //find root of app
