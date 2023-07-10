@@ -54,6 +54,16 @@ export const MainView = () => {
         }
     ])
 
+    //add state to track clicks
+    const [selectedMovie, setSelectedMovie] = useState(null);
+
+    //check for clicks
+    if (selectedMovie) {
+        return (
+            <MovieView movie={selectedMovie} />
+        )
+    }
+
     //check for no movies
     if (movies.length === 0) {
         return <div>The list is empty!</div>;
