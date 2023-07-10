@@ -69,7 +69,9 @@ export const MainView = () => {
 
   //check for clicks
   if (selectedMovie) {
-    return <MovieView movie={selectedMovie} />;
+    return (
+        <MovieView movie={selectedMovie} />
+    );
   }
 
   //check for no movies
