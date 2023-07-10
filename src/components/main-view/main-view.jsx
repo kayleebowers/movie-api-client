@@ -59,7 +59,7 @@ export const MainView = () => {
         Name: "Jonathan Demme",
         Description: "Robert Jonathan Demme was an American filmmaker.",
       },
-      ImagePath: "",
+      ImagePath: "https://upload.wikimedia.org/wikipedia/en/8/86/The_Silence_of_the_Lambs_poster.jpg",
       Featured: false,
     },
   ]);
