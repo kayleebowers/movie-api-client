@@ -22,10 +22,10 @@ export const MainView = () => {
             Title: movie.Title,
             ImagePath: movie.ImagePath,
             Description: movie.Description,
-            Director: movie.Director.Name,
-            directorBio: movie.Director.Description,
-            Genre: movie.Genre.Name,
-            genreDescription: movie.Genre.Description
+            Director: movie.Director,
+            DirectorBio: movie.Director.Description,
+            Genre: movie.Genre,
+            GenreDescription: movie.Genre.Description
           };
         });
         setMovies(moviesFromApi);
