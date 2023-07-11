@@ -11,6 +11,15 @@ export const MainView = () => {
   //add state to track clicks
   const [selectedMovie, setSelectedMovie] = useState(null);
 
+  //fetch API data
+  useEffect(() => {
+    fetch("https://movies-app1-3d6bd65a6f09.herokuapp.com/movies")
+      .then((response) => response.json())
+      .then((movies) => {
+        console.log(movies);
+      })
+  });
+  
   //check for clicks
   if (selectedMovie) {
     return (
