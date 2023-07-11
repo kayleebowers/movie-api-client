@@ -24,7 +24,7 @@ export const MainView = () => {
             Description: movie.Description,
             Director: movie.Director,
             Bio: movie.Director.Bio,
-            Genre: movie.Genre.Name,
+            Genre: movie.Genre,
             GenreDescription: movie.Genre.Description
           };
         });
@@ -35,8 +35,7 @@ export const MainView = () => {
   //check for clicks
   if (selectedMovie) {
     let similarMovies = movies.filter((movie) => {
-      if (movie.Genre == selectedMovie.Genre && movie.Title != selectedMovie.Title) {
-        console.log(movie);
+      if (movie.Genre.Name == selectedMovie.Genre.Name && movie.Title != selectedMovie.Title) {
         return movie;
       } 
     })
