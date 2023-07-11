@@ -16,10 +16,22 @@ export const MainView = () => {
     fetch("https://movies-app1-3d6bd65a6f09.herokuapp.com/movies")
       .then((response) => response.json())
       .then((movies) => {
-        console.log(movies);
+        const moviesFromApi = movies.map((movie) => {
+          return {
+            id: movie._id,
+            Title: movie.Title,
+            ImagePath: movie.ImagePath,
+            Description: movie.Description,
+            Director: movie.Director.Name,
+            directorBio: movie.Director.Description,
+            Genre: movie.Genre.Name,
+            genreDescription: movie.Genre.Description
+          };
+        });
+        setMovies(moviesFromApi);
       })
   });
-  
+
   //check for clicks
   if (selectedMovie) {
     return (
