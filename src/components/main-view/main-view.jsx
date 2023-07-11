@@ -34,11 +34,13 @@ export const MainView = () => {
 
   //check for clicks
   if (selectedMovie) {
+    //filter movies by genre
     let similarMovies = movies.filter((movie) => {
       if (movie.Genre.Name == selectedMovie.Genre.Name && movie.Title != selectedMovie.Title) {
         return movie;
       } 
     })
+    //add MovieView with similar movies 
     return (
       <>
         <MovieView movie={selectedMovie} onBackClick={() => {
