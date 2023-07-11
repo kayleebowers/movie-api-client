@@ -23,7 +23,7 @@ export const MainView = () => {
             ImagePath: movie.ImagePath,
             Description: movie.Description,
             Director: movie.Director,
-            DirectorBio: movie.Director.Description,
+            Bio: movie.Director.Bio,
             Genre: movie.Genre,
             GenreDescription: movie.Genre.Description
           };
