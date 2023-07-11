@@ -24,7 +24,7 @@ export const MainView = () => {
             Description: movie.Description,
             Director: movie.Director,
             Bio: movie.Director.Bio,
-            Genre: movie.Genre,
+            Genre: movie.Genre.Name,
             GenreDescription: movie.Genre.Description
           };
         });
@@ -34,10 +34,31 @@ export const MainView = () => {
 
   //check for clicks
   if (selectedMovie) {
+    let similarMovies = movies.filter((movie) => {
+      if (movie.Genre == selectedMovie.Genre) {
+        console.log(movie);
+        return movie;
+      } 
+    })
     return (
+      <>
         <MovieView movie={selectedMovie} onBackClick={() => {
           return setSelectedMovie(null);
         }}/>
+        <hr />
+        <h2>Similar Movies</h2>
+        {similarMovies.map((movie) => {
+          return (
+            <MovieCard
+              key={movie._id}
+              movie={movie}
+              onMovieClick={(newSelectedMovie) => {
+                setSelectedMovie(newSelectedMovie);
+              }}
+            /> 
+          );
+        })};
+      </>
     );
   }
 
