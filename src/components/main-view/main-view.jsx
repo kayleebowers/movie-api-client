@@ -35,7 +35,7 @@ export const MainView = () => {
   //check for clicks
   if (selectedMovie) {
     let similarMovies = movies.filter((movie) => {
-      if (movie.Genre == selectedMovie.Genre) {
+      if (movie.Genre == selectedMovie.Genre && movie.Title != selectedMovie.Title) {
         console.log(movie);
         return movie;
       } 
@@ -57,7 +57,7 @@ export const MainView = () => {
               }}
             /> 
           );
-        })};
+        })}
       </>
     );
   }
