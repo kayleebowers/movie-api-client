@@ -30,7 +30,7 @@ export const MainView = () => {
         });
         setMovies(moviesFromApi);
       })
-  });
+  }, []);
 
   if (!user) {
     return (
@@ -39,7 +39,7 @@ export const MainView = () => {
       </>
     )
   }
-  
+
   //check for clicks
   if (selectedMovie) {
     //filter movies by genre
