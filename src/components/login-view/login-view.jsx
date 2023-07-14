@@ -24,7 +24,7 @@ export const LoginView = ({ onLoggedIn }) => {
     })
       //return header with JWT 
       .then((response) => {
-        response.json();
+        return response.json();
       })
       //pass user and token to MainView
       .then((data) => {
