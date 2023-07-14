@@ -32,6 +32,7 @@ export const MainView = () => {
       })
   }, []);
 
+  //check for user
   if (!user) {
     return (
       <>

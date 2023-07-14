@@ -2,8 +2,8 @@ import React from "react";
 import { useState } from "react";
 
 export const LoginView = () => {
-  const [username, setUsername] = useState(null);
-  const [password, setPassword] = useState(null);
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
 
   const handleSubmit = (event) => {
     //prevent page from reloading on submit
@@ -20,10 +20,12 @@ export const LoginView = () => {
     }).then((response) => {
         if (response.ok) {
             console.log(response);
+        } else {
+            alert("Login failed");
         }
-    })
+    });
   };
-  
+
   return (
     <>
       <form onSubmit={handleSubmit}>
