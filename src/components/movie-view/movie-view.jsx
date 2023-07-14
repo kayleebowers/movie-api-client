@@ -5,13 +5,13 @@ import { Col, Row, Button, Card } from "react-bootstrap";
 //display movie data 
 export const MovieView = ({ movie, onBackClick }) => {
   return (
-    <Card className="mw-60">
-      <Row>
+    <Card className="mb-4 d-flex justify-content-between">
+      <Row className="d-flex justify-content-between">
       <Col md={3}>
-        <Card.Img className="mw-60" src={movie.ImagePath} alt="movie poster" />
+        <Card.Img className="mw-60 my-4" src={movie.ImagePath} alt="movie poster" />
       </Col>
       <Col md={9}>
-        <Card.Body>
+        <Card.Body className="my-4">
           <Card.Title>{movie.Title}</Card.Title>
           <Card.Text>Description: {movie.Description}</Card.Text>
           <Card.Text>Director: {movie.Director.Name}</Card.Text>

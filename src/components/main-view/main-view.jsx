@@ -76,8 +76,9 @@ export const MainView = () => {
     //add MovieView with similar movies
     return (
       <Row>
-        <Row>
+        <Col>
           <Button
+            className="mx-auto float-end"
             onClick={() => {
               setUser(null);
               setToken(null);
@@ -86,7 +87,7 @@ export const MainView = () => {
           >
             Logout
           </Button>
-        </Row>
+        </Col>
         <MovieView
           movie={selectedMovie}
           onBackClick={() => {
@@ -121,16 +122,19 @@ export const MainView = () => {
   return (
     <Row>
       <Row>
-        <Button
-          onClick={() => {
-            setUser(null);
-            setToken(null);
-            localStorage.clear();
-          }}
-        >
-          Logout
-        </Button>
-      </Row>
+        <Col>
+            <Button
+              className="mx-auto float-end"
+              onClick={() => {
+                setUser(null);
+                setToken(null);
+                localStorage.clear();
+              }}
+            >
+              Logout
+            </Button>
+          </Col>
+        </Row>
       {movies.map((movie) => {
         return (
           <Col md={3} className="mt-4">
