@@ -30,6 +30,9 @@ export const LoginView = ({ onLoggedIn }) => {
       .then((data) => {
         console.log("Login response: " + data);
         if (data.user) {
+          //store user info so user won't have to re-auth on reload
+          localStorage.setItem("user", JSON.stringify(data.user));
+          localStorage.setItem("token", JSON.stringify(data.token));
           onLoggedIn(data.user, data.token);
         } else {
           alert("User does not exist");

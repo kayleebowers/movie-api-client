@@ -6,10 +6,14 @@ import { MovieView } from "../movie-view/movie-view";
 import { LoginView } from "../login-view/login-view";
 
 export const MainView = () => {
+  //set localStorage as default values of user/token
+  const storedUser = JSON.parse(localStorage.getItem("user"));
+  const storedToken = JSON.parse(localStorage.getItem("token"));
+
+  const [user, setUser] = useState(storedUser ? storedUser : null);
+  const [token, setToken] = useState(storedToken ? storedToken : null);
   const [movies, setMovies] = useState([]);
   const [selectedMovie, setSelectedMovie] = useState(null);
-  const [user, setUser] = useState(null);
-  const [token, setToken] = useState(null);
 
   //fetch API data
   useEffect(() => {
@@ -72,6 +76,7 @@ export const MainView = () => {
           onClick={() => {
             setUser(null);
             setToken(null);
+            localStorage.clear();
           }}
         >
           Logout
@@ -111,6 +116,7 @@ export const MainView = () => {
         onClick={() => {
           setUser(null);
           setToken(null);
+          localStorage.clear();
         }}
       >
         Logout
