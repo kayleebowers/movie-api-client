@@ -10,8 +10,8 @@ export const LoginView = ({ onLoggedIn }) => {
     event.preventDefault();
 
     const data = {
-      access: username,
-      secret: password,
+      Username: username,
+      Password: password,
     };
 
     fetch(
@@ -23,12 +23,12 @@ export const LoginView = ({ onLoggedIn }) => {
         },
         body: JSON.stringify(data),
       }).then((response) => {
-        if (response.ok) {
-          onLoggedIn(username);
+          if (response.ok) {
+            onLoggedIn(username);
         } else {
           alert("Login failed");
         }
-      });
+    })
   };
 
   return (
