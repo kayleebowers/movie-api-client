@@ -21,7 +21,9 @@ export const MovieView = ({ movie, onBackClick }) => {
         </Card.Body>
       </Col>
       </Row>
-      <Button onClick={onBackClick}>Back</Button>
+      <Col className="mt-4 mx-auto mr-4">
+        <Button onClick={onBackClick}>Back</Button>
+      </Col>
     </Card>
   );
 };
