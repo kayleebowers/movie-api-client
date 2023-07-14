@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { MovieCard } from "../movie-card/movie-card";
 import { MovieView } from "../movie-view/movie-view";
 import { LoginView } from "../login-view/login-view";
+import { SignUpView } from "../signup-view/signup-view";
 
 export const MainView = () => {
   //set localStorage as default values of user/token
@@ -54,6 +55,8 @@ export const MainView = () => {
             setToken(token);
           }}
         />
+        or
+        <SignUpView />
       </>
     );
   }
