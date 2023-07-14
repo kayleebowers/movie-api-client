@@ -35,74 +35,49 @@ export const SignUpView = () => {
   return (
     <>
       <Form>
-        <Form.Group
-          as={Row}
-          className="mb-3"
-          controlId="formHorizontalUsername"
-        >
-          <Form.Label column sm={2}>
-            Username*
-          </Form.Label>
-          <Col sm={10}>
-            <Form.Control
-              type="text"
-              minLength="6"
-              value={username}
-              required
-              onChange={(e) => {
-                setUsername(e.target.value);
-              }}
-            />
-          </Col>
+        <Form.Group controlId="formUsername" className="mb-3">
+          <Form.Label>Username*</Form.Label>
+          <Form.Control
+            type="text"
+            minLength="6"
+            value={username}
+            required
+            onChange={(e) => {
+              setUsername(e.target.value);
+            }}
+          />
         </Form.Group>
-        <Form.Group
-          as={Row}
-          className="mb-3"
-          controlId="formHorizontalPassword"
-        >
-          <Form.Label column sm={2}>
-            Password*
-          </Form.Label>
-          <Col sm={10}>
-            <Form.Control
-              type="password"
-              required
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-          </Col>
+        <Form.Group className="mb-3" controlId="formPassword">
+          <Form.Label>Password*</Form.Label>
+
+          <Form.Control
+            type="password"
+            required
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
         </Form.Group>
-        <Form.Group as={Row} className="mb-3" controlId="formHorizontalEmail">
-          <Form.Label column sm={2}>
-            Email*
-          </Form.Label>
-          <Col sm={10}>
-            <Form.Control
-              type="email"
-              value={email}
-              required
-              minLength="6"
-              onChange={(e) => {
-                setEmail(e.target.value);
-              }}
-            />
-          </Col>
+        <Form.Group className="mb-3" controlId="formEmail">
+          <Form.Label>Email*</Form.Label>
+
+          <Form.Control
+            type="email"
+            value={email}
+            required
+            minLength="6"
+            onChange={(e) => {
+              setEmail(e.target.value);
+            }}
+          />
         </Form.Group>
-        <Form.Group
-          as={Row}
-          className="mb-3"
-          controlId="formHorizontalBirthday"
-        >
-          <Form.Label column sm={2}>
-            Birthday
-          </Form.Label>
-          <Col sm={10}>
-            <Form.Control
-              type="date"
-              value={birthday}
-              onChange={(e) => setBirthday(e.target.value)}
-            />
-          </Col>
+        <Form.Group className="mb-3" controlId="formBirthday">
+          <Form.Label>Birthday</Form.Label>
+
+          <Form.Control
+            type="date"
+            value={birthday}
+            onChange={(e) => setBirthday(e.target.value)}
+          />
         </Form.Group>
         <Button type="submit" onClick={handleSignUp}>
           Submit
