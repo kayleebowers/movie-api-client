@@ -14,21 +14,30 @@ export const LoginView = ({ onLoggedIn }) => {
       Password: password,
     };
 
-    fetch(
-      "https://movies-app1-3d6bd65a6f09.herokuapp.com/login",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      }).then((response) => {
-          if (response.ok) {
-            onLoggedIn(username);
-        } else {
-          alert("Login failed");
-        }
+    //get header with user info and JWT from API
+    fetch("https://movies-app1-3d6bd65a6f09.herokuapp.com/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
     })
+      //return header with JWT 
+      .then((response) => {
+        response.json();
+      })
+      //pass user and token to MainView
+      .then((data) => {
+        console.log("Login response: " + data);
+        if (data.user) {
+          onLoggedIn(data.user, data.token);
+        } else {
+          alert("User does not exist");
+        }
+      })
+      .catch((e) => {
+        alert("Something went wrong");
+      });
   };
 
   return (

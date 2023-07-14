@@ -10,10 +10,18 @@ export const MainView = () => {
   const [movies, setMovies] = useState([]);
   const [selectedMovie, setSelectedMovie] = useState(null);
   const [user, setUser] = useState(null);
+  const [token, setToken] = useState(null);
 
   //fetch API data
   useEffect(() => {
-    fetch("https://movies-app1-3d6bd65a6f09.herokuapp.com/movies")
+    //prevent data from loading without token
+    if (!token) {
+      return;
+    }
+    fetch("https://movies-app1-3d6bd65a6f09.herokuapp.com/movies", {
+      //pass bearer authorization in header to make authenticated API requests
+      headers: { Authorization: `Bearer ${token}`}
+    })
       .then((response) => response.json())
       .then((movies) => {
         const moviesFromApi = movies.map((movie) => {
@@ -30,13 +38,18 @@ export const MainView = () => {
         });
         setMovies(moviesFromApi);
       })
-  }, []);
+      //add token to dependency array so data only re-renders on token change
+  }, [token]);
 
   //check for user
   if (!user) {
     return (
       <>
-        <LoginView onLoggedIn={(user) => setUser(user)} />
+        <LoginView onLoggedIn={(user, token) => {
+          setUser(user);
+          setToken(token)
+        }} 
+        />
       </>
     )
   }
