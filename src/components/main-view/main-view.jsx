@@ -129,9 +129,9 @@ export const MainView = () => {
           Logout
         </Button>
       </Row>
-      <Col>
-        {movies.map((movie) => {
-          return (
+      {movies.map((movie) => {
+        return (
+          <Col md={3} className="mt-4">
             <MovieCard
               key={movie._id}
               movie={movie}
@@ -139,9 +139,9 @@ export const MainView = () => {
                 setSelectedMovie(newSelectedMovie);
               }}
             />
-          );
-        })}
-      </Col>
+          </Col>
+        );
+      })}
     </Row>
   );
 };
