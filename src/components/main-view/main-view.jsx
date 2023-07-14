@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Button, Row, Col, Card } from "react-bootstrap";
 
 //import child components
 import { MovieCard } from "../movie-card/movie-card";
@@ -74,16 +75,18 @@ export const MainView = () => {
     });
     //add MovieView with similar movies
     return (
-      <>
-        <button
-          onClick={() => {
-            setUser(null);
-            setToken(null);
-            localStorage.clear();
-          }}
-        >
-          Logout
-        </button>
+      <Row>
+        <Row>
+          <Button
+            onClick={() => {
+              setUser(null);
+              setToken(null);
+              localStorage.clear();
+            }}
+          >
+            Logout
+          </Button>
+        </Row>
         <MovieView
           movie={selectedMovie}
           onBackClick={() => {
@@ -103,7 +106,7 @@ export const MainView = () => {
             />
           );
         })}
-      </>
+      </Row>
     );
   }
 
@@ -114,27 +117,31 @@ export const MainView = () => {
 
   //return list of movies
   return (
-    <div>
-      <button
-        onClick={() => {
-          setUser(null);
-          setToken(null);
-          localStorage.clear();
-        }}
-      >
-        Logout
-      </button>
-      {movies.map((movie) => {
-        return (
-          <MovieCard
-            key={movie._id}
-            movie={movie}
-            onMovieClick={(newSelectedMovie) => {
-              setSelectedMovie(newSelectedMovie);
-            }}
-          />
-        );
-      })}
-    </div>
+    <Row>
+      <Row>
+        <Button
+          onClick={() => {
+            setUser(null);
+            setToken(null);
+            localStorage.clear();
+          }}
+        >
+          Logout
+        </Button>
+      </Row>
+      <Col>
+        {movies.map((movie) => {
+          return (
+            <MovieCard
+              key={movie._id}
+              movie={movie}
+              onMovieClick={(newSelectedMovie) => {
+                setSelectedMovie(newSelectedMovie);
+              }}
+            />
+          );
+        })}
+      </Col>
+    </Row>
   );
 };
