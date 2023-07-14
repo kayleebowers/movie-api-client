@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import { Button, Row, Col, Form } from "react-bootstrap";
+import { Button, Card, Col, Form } from "react-bootstrap";
 
 export const LoginView = ({ onLoggedIn }) => {
   const [username, setUsername] = useState("");
@@ -45,33 +45,40 @@ export const LoginView = ({ onLoggedIn }) => {
   };
 
   return (
-    <Form onSubmit={handleSubmit}>
-      <Form.Group controlId="formUsername" className="mb-3">
-        <Form.Label>Username* </Form.Label>
-        <Form.Control
-          type="text"
-          value={username}
-          onChange={(e) => {
-            setUsername(e.target.value);
-          }}
-          required
-          minLength="5"
-        />
-      </Form.Group>
-      <Form.Group controlId="formPassword" className="mb-3">
-        <Form.Label>Password* </Form.Label>
-        <Form.Control
-          type="password"
-          value={password}
-          onChange={(e) => {
-            setPassword(e.target.value);
-          }}
-          required
-        />
-      </Form.Group>
-      <Button variant="primary" type="submit" className="mb-3">
-        Submit
-      </Button>
-    </Form>
+    <Card className="w-50 mx-auto my-5">
+      <Card.Title className="mx-auto pt-4">Sign In</Card.Title>
+      <Card.Body>
+        <Form onSubmit={handleSubmit}>
+          <Form.Group controlId="formUsername" className="mb-3">
+            <Form.Label>Username* </Form.Label>
+            <Form.Control
+              type="text"
+              value={username}
+              onChange={(e) => {
+                setUsername(e.target.value);
+              }}
+              required
+              minLength="5"
+            />
+          </Form.Group>
+          <Form.Group controlId="formPassword" className="mb-3">
+            <Form.Label>Password* </Form.Label>
+            <Form.Control
+              type="password"
+              value={password}
+              onChange={(e) => {
+                setPassword(e.target.value);
+              }}
+              required
+            />
+          </Form.Group>
+          <Col className="mb-3 d-flex justify-content-center pt-4">
+            <Button variant="primary" type="submit">
+              Submit
+            </Button>
+          </Col>
+        </Form>
+      </Card.Body>
+    </Card>
   );
 };
