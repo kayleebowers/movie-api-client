@@ -12,7 +12,7 @@ export const MovieCard = ({ movie, onMovieClick }) => {
         }}
     >
         <Card.Img className="img-fluid h-75" variant="top" src={movie.ImagePath} />
-        <Card.Title className="mx-auto">{movie.Title}</Card.Title>
+        <Card.Title className="mx-auto my-4">{movie.Title}</Card.Title>
         <Card.Body>
             <Button className="float-start">Learn more</Button>
             <Button className="float-end">Add to favorites</Button>
