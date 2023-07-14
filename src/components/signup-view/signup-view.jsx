@@ -6,7 +6,30 @@ export const SignUpView = () => {
   const [email, setEmail] = useState(null);
   const [birthday, setBirthday] = useState(null);
 
-  const handleSignUp = () => {};
+  const handleSignUp = (event) => {
+    event.preventDefault();
+
+    const data = {
+      Username: username,
+      Password: password,
+      Email: email,
+      Birthday: birthday
+    }
+
+    fetch("https://movies-app1-3d6bd65a6f09.herokuapp.com/users", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(data)
+    }).then((response) => {
+      if (response.ok) {
+        alert("You are registered!");
+      } else {
+        alert("Something went wrong.");
+      }
+    })
+  };
 
   return (
     <>
