@@ -1,37 +1,51 @@
 import React from "react";
+import { useState } from "react";
 
 export const LoginView = () => {
-    const handleSubmit = (event) => {
-        //prevent page from reloading on submit
-        event.preventDefault();
+    const [username, setUsername] = useState(null);
+    const [password, setPassword] = useState(null);
+    
+  const handleSubmit = (event) => {
+    //prevent page from reloading on submit
+    event.preventDefault();
 
-        const data = {
-            access: Username,
-            secret: Password
-        }
+    const data = {
+      access: Username,
+      secret: Password,
+    };
 
-        fetch("https://movies-app1-3d6bd65a6f09.herokuapp.com/login", {
-            method: "POST",
-            body: JSON.stringify(data)
-        })
-        // .then((response) => {
-            
-        // })
+    fetch("https://movies-app1-3d6bd65a6f09.herokuapp.com/login", {
+      method: "POST",
+      body: JSON.stringify(data),
+    });
+    // .then((response) => {
 
-    }
+    // })
+  };
   return (
     <>
-        <form onSubmit={handleSubmit}>
-            <label>
-                Username
-                <input type="text" required minLength={"5"}/>
-            </label>
-            <label>
-                Password
-                <input type="password" required/>
-            </label>
-            <button type="submit">Submit</button>
-        </form>
+      <form onSubmit={handleSubmit}>
+        <label>
+          Username
+          <input
+            type="text"
+            required
+            minLength={"5"}
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+          />
+        </label>
+        <label>
+          Password
+        <input 
+            type="password" 
+            required
+            value={password}
+            onChange={(e) => setPassword(e.target.value)} 
+        />
+        </label>
+        <button type="submit">Submit</button>
+      </form>
     </>
   );
 };
