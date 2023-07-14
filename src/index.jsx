@@ -1,15 +1,20 @@
 import { createRoot } from "react-dom/client";
+import Container from "react-bootstrap";
 
 //import MainView component
 import { MainView } from "./components/main-view/main-view";
 
 //import style sheets
-import "bootstrap/dist/css/bootstrap.min.css";
+// import "bootstrap/dist/css/bootstrap.min.css";
 import "./index.scss";
 
 //main component
 const App = () => {
-  return <MainView />;
+  return (
+    <Container style={{border: "1px solid red"}}>
+      <MainView />
+    </Container>
+  );
 };
 
 //find root of app
