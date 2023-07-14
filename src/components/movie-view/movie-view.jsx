@@ -1,37 +1,28 @@
 //import prop-types module
 import PropTypes from "prop-types";
+import { Col, Row, Button, Card } from "react-bootstrap";
 
 //display movie data 
 export const MovieView = ({ movie, onBackClick }) => {
   return (
-    <div>
-      <img src={movie.ImagePath} alt="movie poster" />
-      <p>
-        <span>Title: </span>
-        <span>{movie.Title}</span>
-      </p>
-      <p>
-        <span>Description: </span>
-        <span>{movie.Description}</span>
-      </p>
-      <p>
-        <span>Director: </span>
-        <span>{movie.Director.Name}</span>
-      </p>
-      <p>
-        <span>About the director: </span>
-        <span>{movie.Director.Bio}</span>
-      </p>
-      <p>
-        <span>Genre: </span>
-        <span>{movie.Genre.Name}</span>
-      </p>
-      <p>
-        <span>About the genre: </span>
-        <span>{movie.Genre.Description}</span>
-      </p>
-      <button onClick={onBackClick}>Back</button>
-    </div>
+    <Card className="mw-60">
+      <Row>
+      <Col md={3}>
+        <Card.Img className="mw-60" src={movie.ImagePath} alt="movie poster" />
+      </Col>
+      <Col md={9}>
+        <Card.Body>
+          <Card.Title>{movie.Title}</Card.Title>
+          <Card.Text>Description: {movie.Description}</Card.Text>
+          <Card.Text>Director: {movie.Director.Name}</Card.Text>
+          <Card.Text>About the director: {movie.Director.Bio}</Card.Text>
+          <Card.Text>Genre: {movie.Genre.Name}</Card.Text>
+          <Card.Text>About the genre: {movie.Genre.Description}</Card.Text>
+        </Card.Body>
+      </Col>
+      </Row>
+      <Button onClick={onBackClick}>Back</Button>
+    </Card>
   );
 };
 

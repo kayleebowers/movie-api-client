@@ -97,13 +97,15 @@ export const MainView = () => {
         <h2>Similar Movies</h2>
         {similarMovies.map((movie) => {
           return (
-            <MovieCard
-              key={movie._id}
-              movie={movie}
-              onMovieClick={(newSelectedMovie) => {
-                setSelectedMovie(newSelectedMovie);
-              }}
-            />
+            <Col md={4}>
+              <MovieCard
+                key={movie._id}
+                movie={movie}
+                onMovieClick={(newSelectedMovie) => {
+                  setSelectedMovie(newSelectedMovie);
+                }}
+              />
+            </Col>
           );
         })}
       </Row>
