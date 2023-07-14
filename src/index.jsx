@@ -1,7 +1,8 @@
 import { createRoot } from "react-dom/client";
-import Container from "react-bootstrap";
 
 //import MainView component
+import Container from "react-bootstrap/Container";
+
 import { MainView } from "./components/main-view/main-view";
 
 //import style sheets
@@ -11,7 +12,7 @@ import "./index.scss";
 //main component
 const App = () => {
   return (
-    <Container style={{border: "1px solid red"}}>
+    <Container fluid>
       <MainView />
     </Container>
   );
