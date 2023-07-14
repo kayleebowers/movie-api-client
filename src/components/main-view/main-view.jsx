@@ -80,6 +80,7 @@ export const MainView = () => {
   //return list of movies
   return (
     <div>
+      <button onClick={() => setUser(null)}>Logout</button>
       {movies.map((movie) => {
         return (
           <MovieCard
