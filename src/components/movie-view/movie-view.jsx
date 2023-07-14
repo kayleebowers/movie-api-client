@@ -5,7 +5,7 @@ import { Col, Row, Button, Card } from "react-bootstrap";
 //display movie data 
 export const MovieView = ({ movie, onBackClick }) => {
   return (
-    <Card className="mb-4 d-flex justify-content-between">
+    <Card className="mb-4 d-flex justify-content-between border-0">
       <Row className="d-flex justify-content-between">
       <Col md={3}>
         <Card.Img className="mw-60 my-4" src={movie.ImagePath} alt="movie poster" />
