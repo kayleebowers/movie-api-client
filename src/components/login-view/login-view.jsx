@@ -2,42 +2,33 @@ import React from "react";
 import { useState } from "react";
 
 export const LoginView = ({ onLoggedIn }) => {
-  const [Username, setUsername] = useState("");
-  const [Password, setPassword] = useState("");
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
 
   const handleSubmit = (event) => {
     //prevent page from reloading on submit
     event.preventDefault();
 
     const data = {
-      Username: Username,
-      Password: Password,
+      access: username,
+      secret: password,
     };
 
     fetch(
-      `https://movies-app1-3d6bd65a6f09.herokuapp.com/login?Username=${Username}&Password=${Password}`,
+      "https://movies-app1-3d6bd65a6f09.herokuapp.com/login",
       {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(data),
-      }
-    )
-      .then((response) => {
-        response.json();
-      })
-      .then((data) => {
+      }).then((response) => {
         if (response.ok) {
-          onLoggedIn(Username);
-          console.log("Login response: " + data);
+          onLoggedIn(username);
         } else {
           alert("Login failed");
         }
       });
-    // .catch((e) => {
-    //     alert("Something went wrong");
-    //   });
   };
 
   return (
@@ -48,7 +39,7 @@ export const LoginView = ({ onLoggedIn }) => {
           type="text"
           required
           minLength={"5"}
-          value={Username}
+          value={username}
           onChange={(e) => setUsername(e.target.value)}
         />
       </label>
@@ -57,7 +48,7 @@ export const LoginView = ({ onLoggedIn }) => {
         <input
           type="password"
           required
-          value={Password}
+          value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
       </label>
