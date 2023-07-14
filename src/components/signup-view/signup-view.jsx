@@ -6,7 +6,7 @@ export const SignUpView = () => {
   const [email, setEmail] = useState(null);
   const [birthday, setBirthday] = useState(null);
 
-    const handleSignUp = () => {};
+  const handleSignUp = () => {};
 
   return (
     <>
