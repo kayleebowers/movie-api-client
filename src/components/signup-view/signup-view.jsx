@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Button, Row, Col, Form } from "react-bootstrap";
 
 export const SignUpView = () => {
   const [username, setUsername] = useState(null);
@@ -103,7 +104,7 @@ export const SignUpView = () => {
             />
           </Col>
         </Form.Group>
-        <Button type="submit" onClick={handleSubmit}>
+        <Button type="submit" onClick={handleSignUp}>
           Submit
         </Button>
       </Form>
