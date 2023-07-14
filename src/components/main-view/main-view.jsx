@@ -52,6 +52,7 @@ export const MainView = () => {
     //add MovieView with similar movies 
     return (
       <>
+        <button onClick={() => setUser(null)}>Logout</button>
         <MovieView movie={selectedMovie} onBackClick={() => {
           return setSelectedMovie(null);
         }}/>
