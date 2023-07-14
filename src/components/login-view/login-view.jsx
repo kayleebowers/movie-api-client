@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import { Button, Row, Col, Form } from "react-bootstrap";
 
 export const LoginView = ({ onLoggedIn }) => {
   const [username, setUsername] = useState("");
@@ -22,7 +23,7 @@ export const LoginView = ({ onLoggedIn }) => {
       },
       body: JSON.stringify(data),
     })
-      //return header with JWT 
+      //return header with JWT
       .then((response) => {
         return response.json();
       })
@@ -44,27 +45,33 @@ export const LoginView = ({ onLoggedIn }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
-        Username
-        <input
+    <Form onSubmit={handleSubmit}>
+      <Form.Group controlId="formUsername" className="mb-3">
+        <Form.Label>Username* </Form.Label>
+        <Form.Control
           type="text"
-          required
-          minLength={"5"}
           value={username}
-          onChange={(e) => setUsername(e.target.value)}
-        />
-      </label>
-      <label>
-        Password
-        <input
-          type="password"
+          onChange={(e) => {
+            setUsername(e.target.value);
+          }}
           required
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
+          minLength="5"
         />
-      </label>
-      <button type="submit">Submit</button>
-    </form>
+      </Form.Group>
+      <Form.Group controlId="formPassword" className="mb-3">
+        <Form.Label>Password* </Form.Label>
+        <Form.Control
+          type="password"
+          value={password}
+          onChange={(e) => {
+            setPassword(e.target.value);
+          }}
+          required
+        />
+      </Form.Group>
+      <Button variant="primary" type="submit" className="mb-3">
+        Submit
+      </Button>
+    </Form>
   );
 };
