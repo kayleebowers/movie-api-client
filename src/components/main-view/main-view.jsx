@@ -3,13 +3,13 @@ import { useState, useEffect } from "react";
 //import child components
 import { MovieCard } from "../movie-card/movie-card";
 import { MovieView } from "../movie-view/movie-view";
+import { LoginView } from "../login-view/login-view";
 
 export const MainView = () => {
-  //set movies state to array
-  const [movies, setMovies] = useState([]);
 
-  //add state to track clicks
+  const [movies, setMovies] = useState([]);
   const [selectedMovie, setSelectedMovie] = useState(null);
+  const [user, setUser] = useState(null);
 
   //fetch API data
   useEffect(() => {
@@ -32,6 +32,14 @@ export const MainView = () => {
       })
   });
 
+  if (!user) {
+    return (
+      <>
+        <LoginView />
+      </>
+    )
+  }
+  
   //check for clicks
   if (selectedMovie) {
     //filter movies by genre
