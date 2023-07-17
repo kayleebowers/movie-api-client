@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Button, Row, Col, Card } from "react-bootstrap";
 
 //import child components
 import { MovieCard } from "../movie-card/movie-card";
@@ -74,16 +75,19 @@ export const MainView = () => {
     });
     //add MovieView with similar movies
     return (
-      <>
-        <button
-          onClick={() => {
-            setUser(null);
-            setToken(null);
-            localStorage.clear();
-          }}
-        >
-          Logout
-        </button>
+      <Row>
+        <Col>
+          <Button
+            className="mx-auto float-end"
+            onClick={() => {
+              setUser(null);
+              setToken(null);
+              localStorage.clear();
+            }}
+          >
+            Logout
+          </Button>
+        </Col>
         <MovieView
           movie={selectedMovie}
           onBackClick={() => {
@@ -94,16 +98,18 @@ export const MainView = () => {
         <h2>Similar Movies</h2>
         {similarMovies.map((movie) => {
           return (
-            <MovieCard
-              key={movie._id}
-              movie={movie}
-              onMovieClick={(newSelectedMovie) => {
-                setSelectedMovie(newSelectedMovie);
-              }}
-            />
+            <Col md={4}>
+              <MovieCard
+                key={movie._id}
+                movie={movie}
+                onMovieClick={(newSelectedMovie) => {
+                  setSelectedMovie(newSelectedMovie);
+                }}
+              />
+            </Col>
           );
         })}
-      </>
+      </Row>
     );
   }
 
@@ -114,27 +120,34 @@ export const MainView = () => {
 
   //return list of movies
   return (
-    <div>
-      <button
-        onClick={() => {
-          setUser(null);
-          setToken(null);
-          localStorage.clear();
-        }}
-      >
-        Logout
-      </button>
+    <Row>
+      <Row>
+        <Col>
+            <Button
+              className="mx-auto float-end"
+              onClick={() => {
+                setUser(null);
+                setToken(null);
+                localStorage.clear();
+              }}
+            >
+              Logout
+            </Button>
+          </Col>
+        </Row>
       {movies.map((movie) => {
         return (
-          <MovieCard
-            key={movie._id}
-            movie={movie}
-            onMovieClick={(newSelectedMovie) => {
-              setSelectedMovie(newSelectedMovie);
-            }}
-          />
+          <Col md={3} className="mt-4">
+            <MovieCard
+              key={movie._id}
+              movie={movie}
+              onMovieClick={(newSelectedMovie) => {
+                setSelectedMovie(newSelectedMovie);
+              }}
+            />
+          </Col>
         );
       })}
-    </div>
+    </Row>
   );
 };

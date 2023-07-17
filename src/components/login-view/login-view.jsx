@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import { Button, Card, Col, Form } from "react-bootstrap";
 
 export const LoginView = ({ onLoggedIn }) => {
   const [username, setUsername] = useState("");
@@ -22,7 +23,7 @@ export const LoginView = ({ onLoggedIn }) => {
       },
       body: JSON.stringify(data),
     })
-      //return header with JWT 
+      //return header with JWT
       .then((response) => {
         return response.json();
       })
@@ -44,27 +45,40 @@ export const LoginView = ({ onLoggedIn }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
-        Username
-        <input
-          type="text"
-          required
-          minLength={"5"}
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-        />
-      </label>
-      <label>
-        Password
-        <input
-          type="password"
-          required
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-      </label>
-      <button type="submit">Submit</button>
-    </form>
+    <Card className="w-50 mx-auto my-5">
+      <Card.Title className="mx-auto pt-4">Sign In</Card.Title>
+      <Card.Body>
+        <Form onSubmit={handleSubmit}>
+          <Form.Group controlId="formUsername" className="mb-3">
+            <Form.Label>Username* </Form.Label>
+            <Form.Control
+              type="text"
+              value={username}
+              onChange={(e) => {
+                setUsername(e.target.value);
+              }}
+              required
+              minLength="5"
+            />
+          </Form.Group>
+          <Form.Group controlId="formPassword" className="mb-3">
+            <Form.Label>Password* </Form.Label>
+            <Form.Control
+              type="password"
+              value={password}
+              onChange={(e) => {
+                setPassword(e.target.value);
+              }}
+              required
+            />
+          </Form.Group>
+          <Col className="mb-3 d-flex justify-content-center pt-4">
+            <Button variant="primary" type="submit">
+              Submit
+            </Button>
+          </Col>
+        </Form>
+      </Card.Body>
+    </Card>
   );
 };
