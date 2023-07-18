@@ -16,7 +16,7 @@ export const NavigationBar = ({ user, onLoggedOut }) => {
           </Nav>
         <Navbar.Toggle />
         <Navbar.Collapse className="justify-content-end">
-          <Navbar.Text as={Link} to="/login">
+          <Navbar.Text as={Link} to="/login" onClick={onLoggedOut}>
             Logout
           </Navbar.Text>
         </Navbar.Collapse>
