@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { Col, Row, Button, Card } from "react-bootstrap";
 
 //display movie data 
-export const MovieView = ({ movie, onBackClick }) => {
+export const MovieView = ({ movies }) => {
   return (
     <Card className="mb-4 d-flex justify-content-between border-0">
       <Row className="d-flex justify-content-between">
@@ -38,6 +38,5 @@ MovieView.propTypes = {
     Bio: PropTypes.string,
     Genre: PropTypes.string,
     GenreDescription: PropTypes.string
-  }).isRequired,
-  onBackClick: PropTypes.func.isRequired
+  }).isRequired
 };

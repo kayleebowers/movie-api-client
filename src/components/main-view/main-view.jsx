@@ -73,12 +73,7 @@ export const MainView = () => {
             Logout
           </Button>
         </Col>
-        <MovieView
-          movie={selectedMovie}
-          onBackClick={() => {
-            return setSelectedMovie(null);
-          }}
-        />
+        
         <hr />
         <h2>Similar Movies</h2>
         {similarMovies.map((movie) => {
@@ -98,16 +93,12 @@ export const MainView = () => {
     );
   }
 
-  //check for no movies
-  if (movies.length === 0) {
-    return <div>The list is empty!</div>;
-  }
-
   //return list of movies
   return (
     <BrowserRouter>
       <Row>
         <Routes>
+          {/* route to SignUpView */}
           <Route
             path="/users"
             element={
@@ -122,6 +113,7 @@ export const MainView = () => {
               </>
             }
           />
+          {/* route to LoginView */}
           <Route
             path="/login"
             element={
@@ -139,6 +131,23 @@ export const MainView = () => {
                   </Col>
                 )
                 }
+              </>
+            }
+          />
+          {/* route to movie by title */}
+          <Route 
+            path="/movies/:title"
+            element = {
+              <>
+                { !user ? (
+                  <Navigate to="/login" />
+                ) : movies.length === 0 ? (
+                  <Col>The list is empty!</Col>
+                ) : (
+                  <Col>
+                    <MovieView movies={movies}/>
+                  </Col>
+                )}
               </>
             }
           />
