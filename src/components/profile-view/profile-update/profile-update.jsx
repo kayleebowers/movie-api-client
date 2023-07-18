@@ -2,10 +2,10 @@ import { useState } from "react";
 import { Button, Card, Col, Form } from "react-bootstrap";
 
 export const ProfileUpdate = ({user, token, setUser}) => {
-  const [username, setUsername] = useState(null);
-  const [password, setPassword] = useState(null);
-  const [email, setEmail] = useState(null);
-  const [birthday, setBirthday] = useState(null);
+  const [username, setUsername] = useState(user.Username);
+  const [password, setPassword] = useState(user.Password);
+  const [email, setEmail] = useState(user.Email);
+  const [birthday, setBirthday] = useState(user.Birthday);
 
   const handleUpdate = (event) => {
     event.preventDefault();
@@ -24,14 +24,15 @@ export const ProfileUpdate = ({user, token, setUser}) => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(data),
-    }).then((response) => response.json())
-    .then((data) => {
-      if (data.user) {
-        localStorage.setItem("user", JSON.stringify(data.user));
-        setUser(user);
+    }).then((response) => {
+      if (response.ok) {
+        return response.json();
       } else {
-        alert("Something went wrong.");
+        alert("Update failed")
       }
+     }).then((data) => {
+      localStorage.setItem("user", JSON.stringify(data));
+      setUser(data);
     }).catch((error) => {
         console.error(error);
     })
