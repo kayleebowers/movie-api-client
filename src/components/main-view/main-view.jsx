@@ -47,51 +47,51 @@ export const MainView = () => {
     //add token to dependency array so data only re-renders on token change
   }, [token]);
 
-  //check for clicks
-  if (selectedMovie) {
-    //filter movies by genre
-    let similarMovies = movies.filter((movie) => {
-      if (
-        movie.Genre.Name == selectedMovie.Genre.Name &&
-        movie.Title != selectedMovie.Title
-      ) {
-        return movie;
-      }
-    });
-    //add MovieView with similar movies
-    return (
-      <Row>
-        <Col>
-          <Button
-            className="mx-auto float-end"
-            onClick={() => {
-              setUser(null);
-              setToken(null);
-              localStorage.clear();
-            }}
-          >
-            Logout
-          </Button>
-        </Col>
-        
-        <hr />
-        <h2>Similar Movies</h2>
-        {similarMovies.map((movie) => {
-          return (
-            <Col md={4}>
-              <MovieCard
-                key={movie._id}
-                movie={movie}
-                onMovieClick={(newSelectedMovie) => {
-                  setSelectedMovie(newSelectedMovie);
-                }}
-              />
-            </Col>
-          );
-        })}
-      </Row>
-    );
-  }
+  // //check for clicks
+  // if (selectedMovie) {
+  //   //filter movies by genre
+  //   let similarMovies = movies.filter((movie) => {
+  //     if (
+  //       movie.Genre.Name == selectedMovie.Genre.Name &&
+  //       movie.Title != selectedMovie.Title
+  //     ) {
+  //       return movie;
+  //     }
+  //   });
+  //   //add MovieView with similar movies
+  //   return (
+  //     <Row>
+  //       <Col>
+  //         <Button
+  //           className="mx-auto float-end"
+  //           onClick={() => {
+  //             setUser(null);
+  //             setToken(null);
+  //             localStorage.clear();
+  //           }}
+  //         >
+  //           Logout
+  //         </Button>
+  //       </Col>
+
+  //       <hr />
+  //       <h2>Similar Movies</h2>
+  //       {similarMovies.map((movie) => {
+  //         return (
+  //           <Col md={4}>
+  //             <MovieCard
+  //               key={movie._id}
+  //               movie={movie}
+  //               onMovieClick={(newSelectedMovie) => {
+  //                 setSelectedMovie(newSelectedMovie);
+  //               }}
+  //             />
+  //           </Col>
+  //         );
+  //       })}
+  //     </Row>
+  //   );
+  // }
 
   //return list of movies
   return (
@@ -135,22 +135,23 @@ export const MainView = () => {
             }
           />
           {/* route to movie by title */}
-          <Route 
+          <Route
             path="/movies/:title"
-            element = {
+            element={
               <>
-                { !user ? (
+                {!user ? (
                   <Navigate to="/login" />
                 ) : movies.length === 0 ? (
                   <Col>The list is empty!</Col>
                 ) : (
                   <Col>
-                    <MovieView movies={movies}/>
+                    <MovieView movies={movies} />
                   </Col>
                 )}
               </>
             }
           />
+          {/* logout button
           <Row>
             <Col>
               <Button
@@ -163,21 +164,30 @@ export const MainView = () => {
               >
                 Logout
               </Button>
-            </Col>
-          </Row>
-          {movies.map((movie) => {
-            return (
-              <Col md={3} className="mt-4">
-                <MovieCard
-                  key={movie._id}
-                  movie={movie}
-                  onMovieClick={(newSelectedMovie) => {
-                    setSelectedMovie(newSelectedMovie);
-                  }}
-                />
-              </Col>
-            );
-          })}
+            </Col> */}
+          {/* </Row> */}
+          <Route
+            path="/"
+            element={
+              <>
+                {!user ? (
+                  <Navigate to="/login" />
+                ) : movies.length === 0 ? (
+                  <Col>The list is empty!</Col>
+                ) : (
+                  <>
+                    {movies.map((movie) => {
+                      return (
+                        <Col md={3} className="mt-4" key={movie._id}>
+                          <MovieCard movie={movie} />
+                        </Col>
+                      );
+                    })}
+                  </>
+                )}
+              </>
+            }
+          />
         </Routes>
       </Row>
     </BrowserRouter>
