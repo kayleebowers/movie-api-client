@@ -44,10 +44,11 @@ export const ProfileUpdate = ({user, token, setUser}) => {
         <Card.Body>
           <Form>
             <Form.Group controlId="formUsername" className="mb-3">
-              <Form.Label>Username</Form.Label>
+              <Form.Label>Username*</Form.Label>
               <Form.Control
                 type="text"
                 minLength="6"
+                required
                 value={username}
                 onChange={(e) => {
                   setUsername(e.target.value);
@@ -55,19 +56,21 @@ export const ProfileUpdate = ({user, token, setUser}) => {
               />
             </Form.Group>
             <Form.Group className="mb-3" controlId="formPassword">
-              <Form.Label>Password</Form.Label>
+              <Form.Label>Password*</Form.Label>
 
               <Form.Control
                 type="password"
+                required
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
             </Form.Group>
             <Form.Group className="mb-3" controlId="formEmail">
-              <Form.Label>Email</Form.Label>
+              <Form.Label>Email*</Form.Label>
 
               <Form.Control
                 type="email"
+                required
                 value={email}
                 minLength="6"
                 onChange={(e) => {
@@ -76,11 +79,12 @@ export const ProfileUpdate = ({user, token, setUser}) => {
               />
             </Form.Group>
             <Form.Group className="mb-3" controlId="formBirthday">
-              <Form.Label>Birthday</Form.Label>
+              <Form.Label>Birthday*</Form.Label>
 
               <Form.Control
                 type="date"
                 value={birthday}
+                required
                 onChange={(e) => setBirthday(e.target.value)}
               />
             </Form.Group>

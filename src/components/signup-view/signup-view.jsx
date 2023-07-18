@@ -74,11 +74,12 @@ export const SignUpView = () => {
               />
             </Form.Group>
             <Form.Group className="mb-3" controlId="formBirthday">
-              <Form.Label>Birthday</Form.Label>
+              <Form.Label>Birthday*</Form.Label>
 
               <Form.Control
                 type="date"
                 value={birthday}
+                required
                 onChange={(e) => setBirthday(e.target.value)}
               />
             </Form.Group>
