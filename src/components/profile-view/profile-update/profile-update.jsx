@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Button, Card, Col, Form } from "react-bootstrap";
 
-export const ProfileUpdate = ({user, token}) => {
+export const ProfileUpdate = ({user, token, setUser}) => {
   const [username, setUsername] = useState(null);
   const [password, setPassword] = useState(null);
   const [email, setEmail] = useState(null);
@@ -24,9 +24,11 @@ export const ProfileUpdate = ({user, token}) => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(data),
-    }).then((response) => {
-      if (response.ok) {
-        alert("Your information was updated");
+    }).then((response) => response.json())
+    .then((data) => {
+      if (data.user) {
+        localStorage.setItem("user", JSON.stringify(data.user));
+        setUser(user);
       } else {
         alert("Something went wrong.");
       }
