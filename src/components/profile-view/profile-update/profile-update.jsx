@@ -31,8 +31,8 @@ export const ProfileUpdate = ({user, token, setUser, setToken}) => {
         alert("Update failed")
       }
      }).then((data) => {
-      const updatedUser = localStorage.setItem("user", JSON.stringify(data));
-      setUser(updatedUser);
+      localStorage.setItem("user", JSON.stringify(data));
+      setUser(data);
       setToken(token);
     }).catch((error) => {
         console.error(error);
