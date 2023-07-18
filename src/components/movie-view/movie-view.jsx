@@ -1,9 +1,15 @@
 //import prop-types module
 import PropTypes from "prop-types";
 import { Col, Row, Button, Card } from "react-bootstrap";
+import { useParams } from "react-router";
+import { Link } from "react-router-dom";
 
 //display movie data 
 export const MovieView = ({ movies }) => {
+  const { id } = useParams();
+
+  const movie = movies.find((movie) => movie.id === id);
+
   return (
     <Card className="mb-4 d-flex justify-content-between border-0">
       <Row className="d-flex justify-content-between">
@@ -22,7 +28,9 @@ export const MovieView = ({ movies }) => {
       </Col>
       </Row>
       <Col className="mt-4 mx-auto mr-4">
-        <Button onClick={onBackClick}>Back</Button>
+        <Link to={'/'}>
+          <Button>Back</Button>
+        </Link>
       </Col>
     </Card>
   );
