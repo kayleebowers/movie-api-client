@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Button, Row, Col, Card } from "react-bootstrap";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 //import child components
 import { MovieCard } from "../movie-card/movie-card";
@@ -56,8 +57,6 @@ export const MainView = () => {
             setToken(token);
           }}
         />
-        or
-        <SignUpView />
       </>
     );
   }
@@ -120,34 +119,52 @@ export const MainView = () => {
 
   //return list of movies
   return (
-    <Row>
+    <BrowserRouter>
       <Row>
-        <Col>
-            <Button
-              className="mx-auto float-end"
-              onClick={() => {
-                setUser(null);
-                setToken(null);
-                localStorage.clear();
-              }}
-            >
-              Logout
-            </Button>
-          </Col>
-        </Row>
-      {movies.map((movie) => {
-        return (
-          <Col md={3} className="mt-4">
-            <MovieCard
-              key={movie._id}
-              movie={movie}
-              onMovieClick={(newSelectedMovie) => {
-                setSelectedMovie(newSelectedMovie);
-              }}
-            />
-          </Col>
-        );
-      })}
-    </Row>
+        <Routes>
+          <Route
+            path="/users"
+            element = {
+              <>
+                { user ? (
+                  <Navigate to="/" />
+                ) : (
+                  <Col md={5}>
+                    <SignUpView />
+                  </Col>
+                )}
+              </>
+            }
+          />
+          <Row>
+            <Col>
+              <Button
+                className="mx-auto float-end"
+                onClick={() => {
+                  setUser(null);
+                  setToken(null);
+                  localStorage.clear();
+                }}
+              >
+                Logout
+              </Button>
+            </Col>
+          </Row>
+          {movies.map((movie) => {
+            return (
+              <Col md={3} className="mt-4">
+                <MovieCard
+                  key={movie._id}
+                  movie={movie}
+                  onMovieClick={(newSelectedMovie) => {
+                    setSelectedMovie(newSelectedMovie);
+                  }}
+                />
+              </Col>
+            );
+          })}
+        </Routes>
+      </Row>
+    </BrowserRouter>
   );
 };
