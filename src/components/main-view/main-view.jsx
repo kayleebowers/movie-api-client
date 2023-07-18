@@ -47,20 +47,6 @@ export const MainView = () => {
     //add token to dependency array so data only re-renders on token change
   }, [token]);
 
-  //check for user
-  if (!user) {
-    return (
-      <>
-        <LoginView
-          onLoggedIn={(user, token) => {
-            setUser(user);
-            setToken(token);
-          }}
-        />
-      </>
-    );
-  }
-
   //check for clicks
   if (selectedMovie) {
     //filter movies by genre
@@ -124,15 +110,35 @@ export const MainView = () => {
         <Routes>
           <Route
             path="/users"
-            element = {
+            element={
               <>
-                { user ? (
+                {user ? (
                   <Navigate to="/" />
                 ) : (
                   <Col md={5}>
                     <SignUpView />
                   </Col>
                 )}
+              </>
+            }
+          />
+          <Route
+            path="/login"
+            element={
+              <>
+                {user ? (
+                  <Navigate to="/" />
+                ) : (
+                  <Col md={5}>
+                    <LoginView
+                      onLoggedIn={(user, token) => {
+                        setUser(user);
+                        setToken(token);
+                      }}
+                    />
+                  </Col>
+                )
+                }
               </>
             }
           />
