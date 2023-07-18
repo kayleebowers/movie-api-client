@@ -2,13 +2,26 @@ import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 
-export const ProfileInformation = ({ user }) => {
+export const ProfileInformation = ({ user, token, onLoggedOut }) => {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  const handleDelete = () => {};
+  const handleDelete = () => {
+    fetch(`https://movies-app1-3d6bd65a6f09.herokuapp.com/users/${user.Username}`, {
+      method: "DELETE",
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+  }).then((response) => {
+    if (response.ok) {
+      onLoggedOut();
+    }
+  }).catch((error) => {
+    console.error(error);
+  })
+};
 
   return (
     <>

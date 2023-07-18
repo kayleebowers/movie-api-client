@@ -4,7 +4,7 @@ import { FavoriteMovies } from "./favorite-movies/favorite-movies";
 
 import { useParams } from "react-router";
 
-export const ProfileView = ({user, token, setUser, setToken}) => {
+export const ProfileView = ({user, token, setUser, setToken, onLoggedOut }) => {
     const { username } = useParams();
 
     //get current user data from users API
@@ -26,7 +26,7 @@ export const ProfileView = ({user, token, setUser, setToken}) => {
 
     return (
         <>
-            <ProfileInformation user={user}/>
+            <ProfileInformation user={user} token={token} onLoggedOut={onLoggedOut}/>
             <ProfileUpdate user={user} token={token} setUser={setUser} setToken={setToken}/>
             <FavoriteMovies favorites={user.Favorites}/>
         </>
