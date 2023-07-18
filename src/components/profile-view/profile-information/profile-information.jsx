@@ -1,4 +1,5 @@
-export const ProfileInformation = () => {
+export const ProfileInformation = ({currentUser, token}) => {
+
     return (
         <>
         </>
