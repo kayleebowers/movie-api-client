@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Button, Row, Col, Card } from "react-bootstrap";
+import { Button, Row, Col, Card, Nav } from "react-bootstrap";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 //import child components
@@ -8,6 +8,7 @@ import { MovieView } from "../movie-view/movie-view";
 import { LoginView } from "../login-view/login-view";
 import { SignUpView } from "../signup-view/signup-view";
 import { NavigationBar } from "../navigation-bar/navigation-bar";
+import { ProfileView } from "../profile-view/profile-view";
 
 export const MainView = () => {
   //set localStorage as default values of user/token
@@ -175,6 +176,18 @@ export const MainView = () => {
                       );
                     })}
                   </>
+                )}
+              </>
+            }
+          />
+          <Route 
+            path="/users/:username/"
+            element = {
+              <>
+                { !user ? (
+                  <Navigate to="/login" />
+                ) : (
+                  <ProfileView user={user} />
                 )}
               </>
             }
