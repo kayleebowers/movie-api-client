@@ -7,6 +7,7 @@ import { MovieCard } from "../movie-card/movie-card";
 import { MovieView } from "../movie-view/movie-view";
 import { LoginView } from "../login-view/login-view";
 import { SignUpView } from "../signup-view/signup-view";
+import { NavigationBar } from "../navigation-bar/navigation-bar";
 
 export const MainView = () => {
   //set localStorage as default values of user/token
@@ -64,9 +65,7 @@ export const MainView = () => {
   //         <Button
   //           className="mx-auto float-end"
   //           onClick={() => {
-  //             setUser(null);
-  //             setToken(null);
-  //             localStorage.clear();
+  //             
   //           }}
   //         >
   //           Logout
@@ -95,6 +94,14 @@ export const MainView = () => {
   //return list of movies
   return (
     <BrowserRouter>
+      <NavigationBar 
+        user={user}
+        onLoggedOut={() => {
+          setUser(null);
+          setToken(null);
+          localStorage.clear();
+        }}
+      />
       <Row>
         <Routes>
           {/* route to SignUpView */}
@@ -150,21 +157,6 @@ export const MainView = () => {
               </>
             }
           />
-          {/* logout button
-          <Row>
-            <Col>
-              <Button
-                className="mx-auto float-end"
-                onClick={() => {
-                  setUser(null);
-                  setToken(null);
-                  localStorage.clear();
-                }}
-              >
-                Logout
-              </Button>
-            </Col> */}
-          {/* </Row> */}
           <Route
             path="/"
             element={
