@@ -24,7 +24,7 @@ export const ProfileView = ({user, token}) => {
         <>
             <ProfileInformation user={user}/>
             <ProfileUpdate />
-            <FavoriteMovies />
+            <FavoriteMovies favorites={user.Favorites}/>
         </>
     )
 }
