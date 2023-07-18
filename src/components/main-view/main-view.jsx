@@ -158,6 +158,7 @@ export const MainView = () => {
               </>
             }
           />
+          {/* add main page route */}
           <Route
             path="/"
             element={
@@ -180,6 +181,7 @@ export const MainView = () => {
               </>
             }
           />
+          {/* add profile route */}
           <Route 
             path="/users/:username/"
             element = {
