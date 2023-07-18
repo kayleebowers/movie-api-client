@@ -4,7 +4,7 @@ import { FavoriteMovies } from "./favorite-movies/favorite-movies";
 
 import { useParams } from "react-router";
 
-export const ProfileView = ({user, token, movies}) => {
+export const ProfileView = ({user, token}) => {
     const { username } = useParams();
 
     //get current user data from users API
@@ -13,11 +13,15 @@ export const ProfileView = ({user, token, movies}) => {
     }).then((response) => response.json())
     .then((user) => {
         return {
+            id: user._id,
             Username: user.Username,
             Email: user.Email,
             Birthday: user.Birthday,
             Favorites: user.Favorites
         }
+    })
+    .catch((error) => {
+        console.error(error);
     })
 
     return (
