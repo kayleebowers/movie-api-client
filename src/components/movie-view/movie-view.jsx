@@ -6,9 +6,10 @@ import { Link } from "react-router-dom";
 
 //display movie data 
 export const MovieView = ({ movies }) => {
+  //returning /movies/:title object through useParams
   const { title } = useParams();
 
-  const movie = movies.find((movie) => movie.title === title);
+  const movie = movies.find((movie) => movie.Title === title);
 
   return (
     <Card className="mb-4 d-flex justify-content-between border-0">
