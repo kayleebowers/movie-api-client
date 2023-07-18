@@ -1,11 +1,38 @@
-export const ProfileInformation = ({user}) => {
-    
-    return (
-        <>
-            <h2>Your information</h2>
-            <p>Username: {user.Username}</p>
-            <p>Email: {user.Email}</p>
-            <p>Birthday: {user.Birthday}</p>
-        </>
-    )
-}
+import { useState } from "react";
+import Button from "react-bootstrap/Button";
+import Modal from "react-bootstrap/Modal";
+
+export const ProfileInformation = ({ user }) => {
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+  const handleDelete = () => {};
+
+  return (
+    <>
+      <h2>Your information</h2>
+      <p>Username: {user.Username}</p>
+      <p>Email: {user.Email}</p>
+      <p>Birthday: {user.Birthday}</p>
+      <Button variant="danger" onClick={handleShow}>
+        Delete your account
+      </Button>
+
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Are you sure you want to delete your account?</Modal.Title>
+        </Modal.Header>
+        <Modal.Footer>
+          <Button variant="danger" onClick={handleDelete}>
+            Delete
+          </Button>
+          <Button variant="primary" onClick={handleClose}>
+            Go back
+          </Button>
+        </Modal.Footer>
+      </Modal>
+    </>
+  );
+};
