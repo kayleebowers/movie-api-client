@@ -4,8 +4,8 @@ export const ProfileInformation = ({user}) => {
         <>
             <h2>Your information</h2>
             <p>Username: {user.Username}</p>
-            <p>Username: {user.Email}</p>
-            <p>Username: {user.Birthday}</p>
+            <p>Email: {user.Email}</p>
+            <p>Birthday: {user.Birthday}</p>
         </>
     )
 }

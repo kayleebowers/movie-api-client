@@ -6,10 +6,9 @@ import { useParams } from "react-router";
 
 export const ProfileView = ({user, token}) => {
     const { username } = useParams();
-    const currentUser = user.find((u) => u.Username = username);
 
     //get current user data from users API
-    fetch(`https://movies-app1-3d6bd65a6f09.herokuapp.com/users/${currentUser}`, {
+    fetch(`https://movies-app1-3d6bd65a6f09.herokuapp.com/users/${username}`, {
         headers: { Authorization: `Bearer ${token}`}
     }).then((response) => response.json())
     .then((user) => {
