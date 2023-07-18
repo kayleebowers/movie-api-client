@@ -190,7 +190,7 @@ export const MainView = () => {
                   <Navigate to="/login" />
                 ) : (
                   <Col>
-                    <ProfileView user={user} movies={movies} token={token} setUser={setUser} />
+                    <ProfileView user={user} movies={movies} token={token} setUser={setUser} setToken={setToken} />
                   </Col>
                 )}
               </>

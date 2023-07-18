@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { Button, Card, Col, Form } from "react-bootstrap";
 
-export const ProfileUpdate = ({user, token, setUser}) => {
+export const ProfileUpdate = ({user, token, setUser, setToken}) => {
   const [username, setUsername] = useState(user.Username);
-  const [password, setPassword] = useState(user.Password);
+  const [password, setPassword] = useState("");
   const [email, setEmail] = useState(user.Email);
   const [birthday, setBirthday] = useState(user.Birthday);
 
@@ -26,13 +26,14 @@ export const ProfileUpdate = ({user, token, setUser}) => {
       body: JSON.stringify(data),
     }).then((response) => {
       if (response.ok) {
-        return response.json();
+        alert("Your information was updated");
       } else {
         alert("Update failed")
       }
      }).then((data) => {
-      localStorage.setItem("user", JSON.stringify(data));
-      setUser(data);
+      const updatedUser = localStorage.setItem("user", JSON.stringify(data));
+      setUser(updatedUser);
+      setToken(token);
     }).catch((error) => {
         console.error(error);
     })
