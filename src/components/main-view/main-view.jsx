@@ -48,6 +48,12 @@ export const MainView = () => {
     //add token to dependency array so data only re-renders on token change
   }, [token]);
 
+  const onLoggedOut = () => {
+    setUser(null);
+    setToken(null);
+    localStorage.clear();
+  };
+
   // //check for clicks
   // if (selectedMovie) {
   //   //filter movies by genre
@@ -97,11 +103,7 @@ export const MainView = () => {
     <BrowserRouter>
       <NavigationBar 
         user={user}
-        onLoggedOut={() => {
-          setUser(null);
-          setToken(null);
-          localStorage.clear();
-        }}
+        onLoggedOut={onLoggedOut}
       />
       <Row>
         <Routes>
