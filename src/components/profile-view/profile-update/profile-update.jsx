@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Button, Card, Col, Form } from "react-bootstrap";
 
-export const ProfileUpdate = ({user}) => {
+export const ProfileUpdate = ({user, token}) => {
   const [username, setUsername] = useState(null);
   const [password, setPassword] = useState(null);
   const [email, setEmail] = useState(null);
@@ -20,6 +20,7 @@ export const ProfileUpdate = ({user}) => {
     fetch(`https://movies-app1-3d6bd65a6f09.herokuapp.com/users/${user.Username}`, {
       method: "PUT",
       headers: {
+        Authorization: `Bearer ${token}`,
         "Content-Type": "application/json",
       },
       body: JSON.stringify(data),
@@ -46,7 +47,6 @@ export const ProfileUpdate = ({user}) => {
                 type="text"
                 minLength="6"
                 value={username}
-                required
                 onChange={(e) => {
                   setUsername(e.target.value);
                 }}
@@ -57,7 +57,6 @@ export const ProfileUpdate = ({user}) => {
 
               <Form.Control
                 type="password"
-                required
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
@@ -68,7 +67,6 @@ export const ProfileUpdate = ({user}) => {
               <Form.Control
                 type="email"
                 value={email}
-                required
                 minLength="6"
                 onChange={(e) => {
                   setEmail(e.target.value);
