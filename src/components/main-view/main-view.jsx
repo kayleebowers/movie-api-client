@@ -48,6 +48,7 @@ export const MainView = () => {
     //add token to dependency array so data only re-renders on token change
   }, [token]);
 
+  //logged out function
   const onLoggedOut = () => {
     setUser(null);
     setToken(null);
@@ -174,7 +175,7 @@ export const MainView = () => {
                     {movies.map((movie) => {
                       return (
                         <Col md={3} className="mt-4" key={movie._id}>
-                          <MovieCard movie={movie} />
+                          <MovieCard movie={movie} user={user} />
                         </Col>
                       );
                     })}
