@@ -6,11 +6,13 @@ export const FavoriteMovies = ({ favoriteMovies, movie }) => {
     <>
       <h2>Your favorite movies :(</h2>
       <p>Why doesn't it work?</p>
-      {favoriteMovies.map((movie) => {
-        <Col xs={12} s={6} md={3} key={movie._id}>
-          <MovieCard movie={movie} />
-        </Col>
-      })}
+        { favoriteMovies && (
+          favoriteMovies.map((movie) => {
+          <Col xs={12} s={6} md={3} key={movie._id}>
+            <MovieCard movie={movie} />
+          </Col>
+        })
+        )}
     </>
   );
 };
