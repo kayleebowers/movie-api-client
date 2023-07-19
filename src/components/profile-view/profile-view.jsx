@@ -8,8 +8,14 @@ export const ProfileView = ({user, token, setUser, setToken, onLoggedOut, movies
     const { id } = useParams();
 
     //get favoriteMovies array
-    let favoriteMovies = movies.filter((movie) => {
-        return user.Favorites.includes(movie._id);
+    let favoriteMovies = user.Favorites;
+
+    favoriteMovies = movies.filter((movie) => {
+        if (!favoriteMovies) {
+            console.log("No favorite movies");
+        } else {
+            return user.Favorites.includes(movie._id);
+        }
     });
 
     //get current user data from users API
