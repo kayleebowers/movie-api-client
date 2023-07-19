@@ -9,7 +9,6 @@ import { LoginView } from "../login-view/login-view";
 import { SignUpView } from "../signup-view/signup-view";
 import { NavigationBar } from "../navigation-bar/navigation-bar";
 import { ProfileView } from "../profile-view/profile-view";
-import { FavoriteMovies } from "../profile-view/favorite-movies/favorite-movies";
 
 export const MainView = () => {
   //set localStorage as default values of user/token
@@ -195,20 +194,6 @@ export const MainView = () => {
                 ) : (
                   <Col>
                     <ProfileView user={user} movies={movies} token={token} setUser={setUser} setToken={setToken} onLoggedOut={onLoggedOut} />
-                  </Col>
-                )}
-              </>
-            }
-          />
-          <Route
-            path="/users/:username/movies/:movieId"
-            element = {
-              <>
-                { !user ? (
-                  <Navigate to="/login" />
-                ) : (
-                  <Col>
-                    <FavoriteMovies user={user} movies={movies} token={token} />
                   </Col>
                 )}
               </>

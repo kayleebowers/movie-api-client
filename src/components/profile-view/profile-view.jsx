@@ -24,11 +24,15 @@ export const ProfileView = ({user, token, setUser, setToken, onLoggedOut, movies
         console.error(error);
     })
 
+    let favoriteMovies = movies.filter((movie) => {
+        user.Favorites.includes(movie._id);
+    });
+
     return (
         <>
             <ProfileInformation user={user} token={token} onLoggedOut={onLoggedOut}/>
             <ProfileUpdate user={user} token={token} setUser={setUser} setToken={setToken}/>
-            <FavoriteMovies favorites={Favorites}/>
+            <FavoriteMovies favoriteMovies={favoriteMovies}/>
         </>
     )
 }
