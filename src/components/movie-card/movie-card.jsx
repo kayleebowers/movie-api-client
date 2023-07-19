@@ -6,8 +6,24 @@ import { Link } from "react-router-dom";
 import Heart from "react-animated-heart";
 import { useState } from "react";
 
-export const MovieCard = ({ movie, user }) => {
+export const MovieCard = ({ movie, user, token, setUser }) => {
   const [isClick, setClick] = useState(false);
+
+  const addToFavorites = () => {
+    fetch(`https://movies-app1-3d6bd65a6f09.herokuapp.com/users/${user._id}/movies/${movie._id}`, {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${token}`,
+
+      }
+    }).then((response) => response.json()
+      .then((data) => {
+        localStorage.setItem("user", JSON.stringify(data));
+        setUser(data);
+        setClick(!isClick);
+      })
+    )
+  }
 
   return (
     <Card className="h-100" style={{ width: "22rem" }}>
