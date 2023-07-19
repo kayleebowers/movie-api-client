@@ -8,6 +8,7 @@ import { useState } from "react";
 
 export const MovieCard = ({ movie, user, token, setUser }) => {
   const [isClick, setClick] = useState(false);
+  const [isFavorite, setFavorite] = useState(false);
 
   const addToFavorites = () => {
     fetch(`https://movies-app1-3d6bd65a6f09.herokuapp.com/users/${user._id}/movies/${movie._id}`, {
@@ -20,6 +21,7 @@ export const MovieCard = ({ movie, user, token, setUser }) => {
       .then((data) => {
         localStorage.setItem("user", JSON.stringify(data));
         setUser(data);
+        setFavorite(true);
       }).catch((error) => {
         console.error(error);
       })
@@ -37,6 +39,7 @@ export const MovieCard = ({ movie, user, token, setUser }) => {
     .then((data) => {
       localStorage.setItem("user", JSON.stringify(data));
         setUser(data);
+        setFavorite(false);
       }).catch((error) => {
         console.error(error);
       })
@@ -49,14 +52,23 @@ export const MovieCard = ({ movie, user, token, setUser }) => {
         variant="top"
         src={movie.ImagePath}
       />
-      <Heart
+      { !isFavorite ? (
+        < Heart 
         isClick={isClick}
-        onClick={() => 
-           {
-            addToFavorites;
-            setClick(!isClick)
-          }}
-      />
+        onClick={() => {
+          setClick(isClick);
+          addToFavorites
+        }}
+        />
+      ) : (
+        < Heart 
+        isClick={isClick}
+        onClick={() => {
+          setClick(!isClick);
+          deleteFromFavorites
+        }}
+        />
+      )}
       <Card.Title className="mx-auto my-4">{movie.Title}</Card.Title>
       <Card.Body>
         <Link to={`/movies/${encodeURIComponent(movie.Title)}`}>
