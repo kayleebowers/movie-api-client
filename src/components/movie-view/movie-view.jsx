@@ -36,7 +36,7 @@ export const MovieView = ({ movies }) => {
           </Link>
         </Col>
       </Card>
-      <SimilarMovies movie={movie}/>
+      <SimilarMovies movie={movie} movies={movies}/>
     </>
   );
 };
