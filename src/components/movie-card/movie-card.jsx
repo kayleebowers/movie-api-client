@@ -14,15 +14,32 @@ export const MovieCard = ({ movie, user, token, setUser }) => {
       method: "POST",
       headers: {
         Authorization: `Bearer ${token}`,
-
+        "Content-Type": "application/json"
       }
     }).then((response) => response.json()
       .then((data) => {
         localStorage.setItem("user", JSON.stringify(data));
         setUser(data);
-        setClick(!isClick);
+      }).catch((error) => {
+        console.error(error);
       })
     )
+  }
+
+  const deleteFromFavorites = () => {
+    fetch(`https://movies-app1-3d6bd65a6f09.herokuapp.com/users/${user._id}/movies/${movie._id}`, {
+      method: "DELETE",
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json"
+      }
+    }).then((response) => response.json())
+    .then((data) => {
+      localStorage.setItem("user", JSON.stringify(data));
+        setUser(data);
+      }).catch((error) => {
+        console.error(error);
+      })
   }
 
   return (
@@ -34,9 +51,11 @@ export const MovieCard = ({ movie, user, token, setUser }) => {
       />
       <Heart
         isClick={isClick}
-        onClick={() => {
-          setClick(!isClick);
-        }}
+        onClick={() => 
+           {
+            addToFavorites;
+            setClick(!isClick)
+          }}
       />
       <Card.Title className="mx-auto my-4">{movie.Title}</Card.Title>
       <Card.Body>
