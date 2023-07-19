@@ -84,7 +84,7 @@ export const MainView = () => {
   //       <h2>Similar Movies</h2>
   //       {similarMovies.map((movie) => {
   //         return (
-  //           <Col md={4}>
+  //           <Col xs={12} s={6} md={4}>
   //             <MovieCard
   //               key={movie._id}
   //               movie={movie}
