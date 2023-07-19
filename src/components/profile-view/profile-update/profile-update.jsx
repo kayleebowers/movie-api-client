@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Button, Card, Col, Form } from "react-bootstrap";
 
-export const ProfileUpdate = ({user, token, setUser, setToken}) => {
+export const ProfileUpdate = ({user, token, setUser}) => {
   const [username, setUsername] = useState(user.Username);
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState(user.Email);
@@ -33,7 +33,7 @@ export const ProfileUpdate = ({user, token, setUser, setToken}) => {
      }).then((data) => {
       localStorage.setItem("user", JSON.stringify(data));
       setUser(data);
-      setToken(token);
+      // setToken(token);
     }).catch((error) => {
         console.error(error);
     })
@@ -44,12 +44,12 @@ export const ProfileUpdate = ({user, token, setUser, setToken}) => {
       <Card className="w-50 mx-auto my-5">
         <Card.Title className="mx-auto pt-4">Update your information</Card.Title>
         <Card.Body>
-          <Form>
+          <Form onSubmit={handleUpdate}>
             <Form.Group controlId="formUsername" className="mb-3">
               <Form.Label>Username*</Form.Label>
               <Form.Control
                 type="text"
-                minLength="6"
+                minLength="5"
                 required
                 value={username}
                 onChange={(e) => {
@@ -91,8 +91,8 @@ export const ProfileUpdate = ({user, token, setUser, setToken}) => {
               />
             </Form.Group>
             <Col className="mb-3 d-flex justify-content-center pt-4">
-              <Button variant="primary" type="submit" onClick={handleUpdate}>
-                Submit
+              <Button variant="primary" type="submit">
+                Update
               </Button>
             </Col>
           </Form>
