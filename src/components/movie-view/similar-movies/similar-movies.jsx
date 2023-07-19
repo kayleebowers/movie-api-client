@@ -12,7 +12,7 @@ export const SimilarMovies = ({ movie, movies }) => {
   
   return (
     <>
-      <h2>Similar movies</h2>
+      <h2>Similar movies you may enjoy</h2>
       <Row>
         {similarMovies.map((movie) => {
             return (

@@ -5,7 +5,7 @@ import { Col, Row, Button, Card } from "react-bootstrap";
 export const FavoriteMovies = ({ favoriteMovies, movie }) => {
   return (
     <>
-      <h2>Your favorite movies :(</h2>
+      <h2>Your favorite movies</h2>
       <Row>
         { favoriteMovies && (
           favoriteMovies.map((movie) => {

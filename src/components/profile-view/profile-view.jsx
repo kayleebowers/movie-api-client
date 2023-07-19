@@ -16,12 +16,16 @@ export const ProfileView = ({
   const { id } = useParams();
 
   //get favoriteMovies array
-  let favoriteMovies = movies.filter((movie) => {
-    return user.Favorites.includes(movie._id);
-  });
+  let favoriteMovies;
+//    favoriteMovies = movies.filter((movie) => {
+//     return user.Favorites.includes(movie._id);
+//   });
 
   //get current user data from users API
   useEffect(() => {
+    if (!user) {
+        return;
+    }
     fetch(`https://movies-app1-3d6bd65a6f09.herokuapp.com/users/${id}`, {
       headers: { Authorization: `Bearer ${token}` },
     })
@@ -38,7 +42,7 @@ export const ProfileView = ({
       .catch((error) => {
         console.error(error);
       });
-  }, []);
+  }, [user]);
 
   return (
     <>
