@@ -9,7 +9,7 @@ export const ProfileInformation = ({ user, token, onLoggedOut }) => {
   const handleShow = () => setShow(true);
 
   const handleDelete = () => {
-    fetch(`https://movies-app1-3d6bd65a6f09.herokuapp.com/users/${user.Username}`, {
+    fetch(`https://movies-app1-3d6bd65a6f09.herokuapp.com/users/${user._id}`, {
       method: "DELETE",
       headers: {
         Authorization: `Bearer ${token}`

@@ -5,10 +5,10 @@ import { FavoriteMovies } from "./favorite-movies/favorite-movies";
 import { useParams } from "react-router";
 
 export const ProfileView = ({user, token, setUser, setToken, onLoggedOut, movies }) => {
-    const { username } = useParams();
+    const { id } = useParams();
 
     //get current user data from users API
-    fetch(`https://movies-app1-3d6bd65a6f09.herokuapp.com/users/${username}`, {
+    fetch(`https://movies-app1-3d6bd65a6f09.herokuapp.com/users/${id}`, {
         headers: { Authorization: `Bearer ${token}`}
     }).then((response) => response.json())
     .then((user) => {
