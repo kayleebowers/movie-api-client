@@ -8,13 +8,13 @@ import { useState } from "react";
 
 export const MovieCard = ({ movie, user }) => {
   const [isClick, setClick] = useState(false);
-  const [isFavorite, setFavorite] = useState(false);
+//   const [isFavorite, setFavorite] = useState(false);
 
-  //add movie to favorites function
-  const addToFavorites = (movie) => {
-    setFavorite(!isFavorite);
-    user.Favorites.push(movie._id);
-  };
+//   //add movie to favorites function
+//   const addToFavorites = (movie) => {
+//     setFavorite(!isFavorite);
+//     user.Favorites.push(movie._id);
+//   };
 
   return (
     <Card className="h-100" style={{ width: "22rem" }}>
@@ -27,7 +27,7 @@ export const MovieCard = ({ movie, user }) => {
         isClick={isClick}
         onClick={() => {
           setClick(!isClick);
-          addToFavorites(movie);
+        //   addToFavorites(movie);
         }}
       />
       <Card.Title className="mx-auto my-4">{movie.Title}</Card.Title>
