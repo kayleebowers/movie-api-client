@@ -10,7 +10,7 @@ export const FavoriteMovies = ({ favoriteMovies, movie }) => {
         { favoriteMovies && (
           favoriteMovies.map((movie) => {
             return (
-              <Col xs={12} s={6} md={3} key={movie._id}>
+              <Col xs={6} md={4} key={movie._id}>
                 <MovieCard movie={movie} />
               </Col>
             )

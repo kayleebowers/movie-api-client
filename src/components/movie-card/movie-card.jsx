@@ -46,13 +46,13 @@ export const MovieCard = ({ movie, user, token, setUser }) => {
   }
 
   return (
-    <Card className="h-100 w-100 m-auto">
+    <Card className="h-100 m-auto">
       <Card.Img
-        className="fluid h-75"
+        className="fluid h-100"
         variant="top"
         src={movie.ImagePath}
       />
-      <Card.Body className="h-50">
+      <Card.Body className="h-50 d-flex flex-column align-items-center">
       {/* { !isFavorite ? (
         < Heart 
         isClick={isClick}
@@ -70,7 +70,7 @@ export const MovieCard = ({ movie, user, token, setUser }) => {
         }}
         />
       )} */}
-      <Card.Title>{movie.Title}</Card.Title>
+      <Card.Title className="font-weight-bold my-3">{movie.Title}</Card.Title>
         <Link to={`/movies/${encodeURIComponent(movie.Title)}`}>
           <Button variant="primary">Learn more</Button>
         </Link>
