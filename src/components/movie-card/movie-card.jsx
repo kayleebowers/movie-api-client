@@ -46,13 +46,14 @@ export const MovieCard = ({ movie, user, token, setUser }) => {
   }
 
   return (
-    <Card className="h-100" style={{ width: "22rem" }}>
+    <Card className="h-100 w-100 m-auto">
       <Card.Img
-        className="img-fluid h-75"
+        className="fluid h-75"
         variant="top"
         src={movie.ImagePath}
       />
-      { !isFavorite ? (
+      <Card.Body className="h-50">
+      {/* { !isFavorite ? (
         < Heart 
         isClick={isClick}
         onClick={() => {
@@ -68,11 +69,10 @@ export const MovieCard = ({ movie, user, token, setUser }) => {
           deleteFromFavorites
         }}
         />
-      )}
-      <Card.Title className="mx-auto my-4">{movie.Title}</Card.Title>
-      <Card.Body>
+      )} */}
+      <Card.Title>{movie.Title}</Card.Title>
         <Link to={`/movies/${encodeURIComponent(movie.Title)}`}>
-          <Button variant="link">Learn more</Button>
+          <Button variant="primary">Learn more</Button>
         </Link>
       </Card.Body>
     </Card>
