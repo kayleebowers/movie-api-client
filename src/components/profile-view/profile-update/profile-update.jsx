@@ -31,7 +31,6 @@ export const ProfileUpdate = ({ user, token, setUser }) => {
       body: JSON.stringify(data),
     })
       .then((response) => {
-        console.log(response);
         if (response.ok) {
           alert("Your information was updated");
           return response.json();

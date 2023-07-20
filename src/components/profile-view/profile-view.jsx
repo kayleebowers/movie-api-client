@@ -21,11 +21,13 @@ export const ProfileView = ({
         return;
     }
     fetch(`https://movies-app1-3d6bd65a6f09.herokuapp.com/users/${user._id}`, {
-      headers: { Authorization: `Bearer ${token}` },
+      headers: { 
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json" 
+      },
     })
       .then((response) => response.json())
       .then((user) => {
-        console.log(user);
         return {
           id: user._id,
           Username: user.Username,

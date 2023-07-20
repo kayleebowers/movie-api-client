@@ -9,9 +9,8 @@ import { useState } from "react";
 export const MovieCard = ({ movie, user, token, setUser }) => {
   const [isclick, setclick] = useState(false);
   const [isFavorite, setFavorite] = useState(false);
+  
   const addToFavorites = () => {
-    console.log(movie);
-
     fetch(
       `https://movies-app1-3d6bd65a6f09.herokuapp.com/users/${user._id}/movies/${movie.id}`,
       {
@@ -21,9 +20,7 @@ export const MovieCard = ({ movie, user, token, setUser }) => {
           "Content-Type": "application/json",
         },
       }
-    ).then((response) =>
-      response
-        .json()
+    ).then((response) => response.json()
         .then((data) => {
           localStorage.setItem("user", JSON.stringify(data));
           setUser(data);
