@@ -26,7 +26,7 @@ export const ProfileView = ({
     if (!user) {
         return;
     }
-    fetch(`https://movies-app1-3d6bd65a6f09.herokuapp.com/users/${username}`, {
+    fetch(`https://movies-app1-3d6bd65a6f09.herokuapp.com/users/${user._id}`, {
       headers: { Authorization: `Bearer ${token}` },
     })
       .then((response) => response.json())
@@ -42,7 +42,7 @@ export const ProfileView = ({
       .catch((error) => {
         console.error(error);
       });
-  }, [user]);
+  }, []);
 
   return (
     <>
@@ -56,7 +56,7 @@ export const ProfileView = ({
             token={token}
             setUser={setUser}
             setToken={setToken}
-          />
+          /> 
         </Col>
       </Row>
       <Row>

@@ -12,10 +12,10 @@ import { ProfileView } from "../profile-view/profile-view";
 
 export const MainView = () => {
   //set localStorage as default values of user/token
-  const storedUser = JSON.parse(localStorage.getItem("user"));
-  const storedToken = JSON.parse(localStorage.getItem("token"));
+  const storedUser = localStorage.getItem("user");
+  const storedToken = localStorage.getItem("token");
 
-  const [user, setUser] = useState(storedUser ? storedUser : null);
+  const [user, setUser] = useState(storedUser ? JSON.parse(storedUser) : null);
   const [token, setToken] = useState(storedToken ? storedToken : null);
   const [movies, setMovies] = useState([]);
 
@@ -149,7 +149,7 @@ export const MainView = () => {
                   <Navigate to="/login" />
                 ) : (
                   <Col>
-                    <ProfileView user={user} movies={movies} token={token} setUser={setUser} setToken={setToken} onLoggedOut={onLoggedOut} />
+                    <ProfileView user={user} movies={movies} token={token} setUser={setUser} onLoggedOut={onLoggedOut} />
                   </Col>
                 )}
               </>
