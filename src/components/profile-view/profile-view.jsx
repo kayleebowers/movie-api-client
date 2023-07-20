@@ -15,12 +15,6 @@ export const ProfileView = ({
 }) => {
   const { username } = useParams();
 
-  //get favoriteMovies array
-  let favoriteMovies;
-//    favoriteMovies = movies.filter((movie) => {
-//     return user.Favorites.includes(movie._id);
-//   });
-
   //get current user data from users API
   useEffect(() => {
     if (!user) {
@@ -31,6 +25,7 @@ export const ProfileView = ({
     })
       .then((response) => response.json())
       .then((user) => {
+        console.log(user);
         return {
           id: user._id,
           Username: user.Username,
@@ -61,7 +56,7 @@ export const ProfileView = ({
       </Row>
       <Row>
         <Col>
-          <FavoriteMovies favoriteMovies={favoriteMovies} movies={movies} />
+          <FavoriteMovies user={user} movies={movies} />
         </Col>
       </Row>
     </>
