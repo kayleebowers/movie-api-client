@@ -7,6 +7,9 @@ export const ProfileUpdate = ({user, token, setUser}) => {
   const [email, setEmail] = useState(user.Email);
   const [birthday, setBirthday] = useState(user.Birthday);
 
+  const storedUser = localStorage.getItem("user") ? JSON.parse(localStorage.getItem(user)) : null;
+  setUser(storedUser);
+  
   const handleUpdate = (event) => {
     event.preventDefault();
 
@@ -22,6 +25,7 @@ export const ProfileUpdate = ({user, token, setUser}) => {
       headers: {
         Authorization: `Bearer ${token}`,
         "Content-Type": "application/json",
+        mode: "no-cors"
       },
       body: JSON.stringify(data),
     }).then((response) => {
