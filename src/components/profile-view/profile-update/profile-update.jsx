@@ -41,8 +41,10 @@ export const ProfileUpdate = ({user, token, setUser}) => {
 
   return (
     <>
-      <Card className="w-50 mx-auto my-5">
-        <Card.Title className="mx-auto pt-4">Update your information</Card.Title>
+      <Card className="m-5">
+        <Card.Title className="mx-auto pt-4">
+          <h3>Update your information</h3>
+          </Card.Title>
         <Card.Body>
           <Form onSubmit={handleUpdate}>
             <Form.Group controlId="formUsername" className="mb-3">

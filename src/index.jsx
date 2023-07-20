@@ -12,7 +12,7 @@ import "./index.scss";
 //main component
 const App = () => {
   return (
-    <Container fluid>
+    <Container>
       <MainView />
     </Container>
   );

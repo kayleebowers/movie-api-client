@@ -2,7 +2,7 @@ import { ProfileInformation } from "./profile-information/profile-information";
 import { ProfileUpdate } from "./profile-update/profile-update";
 import { FavoriteMovies } from "./favorite-movies/favorite-movies";
 import { useEffect } from "react";
-
+import { Button, Card, Col, Form, Row } from "react-bootstrap";
 import { useParams } from "react-router";
 
 export const ProfileView = ({
@@ -46,14 +46,24 @@ export const ProfileView = ({
 
   return (
     <>
-      <ProfileInformation user={user} token={token} onLoggedOut={onLoggedOut} />
-      <ProfileUpdate
-        user={user}
-        token={token}
-        setUser={setUser}
-        setToken={setToken}
-      />
-      <FavoriteMovies favoriteMovies={favoriteMovies} movies={movies} />
+      <Row className="mx-auto">
+        <Col lg={5} md={6} xs={12}>
+          <ProfileInformation user={user} token={token} onLoggedOut={onLoggedOut} />
+        </Col>
+        <Col lg={7} md={6} xs={12}>
+          <ProfileUpdate
+            user={user}
+            token={token}
+            setUser={setUser}
+            setToken={setToken}
+          />
+        </Col>
+      </Row>
+      <Row>
+        <Col>
+          <FavoriteMovies favoriteMovies={favoriteMovies} movies={movies} />
+        </Col>
+      </Row>
     </>
   );
 };
