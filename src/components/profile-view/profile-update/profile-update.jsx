@@ -17,7 +17,7 @@ export const ProfileUpdate = ({user, token, setUser}) => {
       Birthday: birthday,
     };
 
-    fetch(`https://movies-app1-3d6bd65a6f09.herokuapp.com/users/${user._id}`, {
+    fetch(`https://movies-app1-3d6bd65a6f09.herokuapp.com/users/${user.Username}`, {
       method: "PUT",
       headers: {
         Authorization: `Bearer ${token}`,

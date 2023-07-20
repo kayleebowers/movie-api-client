@@ -13,7 +13,7 @@ export const ProfileView = ({
   onLoggedOut,
   movies,
 }) => {
-  const { id } = useParams();
+  const { username } = useParams();
 
   //get favoriteMovies array
   let favoriteMovies;
@@ -26,7 +26,7 @@ export const ProfileView = ({
     if (!user) {
         return;
     }
-    fetch(`https://movies-app1-3d6bd65a6f09.herokuapp.com/users/${id}`, {
+    fetch(`https://movies-app1-3d6bd65a6f09.herokuapp.com/users/${username}`, {
       headers: { Authorization: `Bearer ${token}` },
     })
       .then((response) => response.json())

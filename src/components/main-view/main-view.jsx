@@ -142,7 +142,7 @@ export const MainView = () => {
           />
           {/* add profile route */}
           <Route 
-            path="/users/:id/"
+            path="/users/:username/"
             element = {
               <>
                 { !user ? (
