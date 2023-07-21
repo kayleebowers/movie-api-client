@@ -9,7 +9,6 @@ import { LoginView } from "../login-view/login-view";
 import { SignUpView } from "../signup-view/signup-view";
 import { NavigationBar } from "../navigation-bar/navigation-bar";
 import { ProfileView } from "../profile-view/profile-view";
-import { SearchBar } from "./search-bar";
 
 export const MainView = () => {
   //set localStorage as default values of user/token
@@ -57,7 +56,7 @@ export const MainView = () => {
   };
   
   //define favorites
-  let favorites = user.Favorites.includes(movies.id);
+  let favorites = ["test"];
 
   //return list of movies
   return (
@@ -153,7 +152,7 @@ export const MainView = () => {
                   <Navigate to="/login" />
                 ) : (
                   <Col>
-                    <ProfileView user={user} movies={movies} token={token} setUser={setUser} onLoggedOut={onLoggedOut} />
+                    <ProfileView user={user} movies={movies} token={token} favorites={favorites} setUser={setUser} onLoggedOut={onLoggedOut} />
                   </Col>
                 )}
               </>

@@ -20,31 +20,43 @@ export const NavigationBar = ({
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
-          <Nav className="me-auto my-2 my-lg-0"
-            style={{ maxHeight: '100px' }}
+          <Nav
+            className="me-auto my-2 my-lg-0 w-100 d-flex justify-content-between"
+            style={{ maxHeight: "100px"}}
             navbarScroll
           >
             {user && (
               <>
-                <Nav.Link as={Link} to="/">
-                  Home
-                </Nav.Link>
-                <Nav.Link as={Link} to={`/users/${user.Username}/`}>
-                  Profile
-                </Nav.Link>
+                <div className="d-flex">
+                  <Nav.Link as={Link} to="/">
+                    Home
+                  </Nav.Link>
+                  <Nav.Link as={Link} to={`/users/${user.Username}/`}>
+                    Profile
+                  </Nav.Link>
+                </div>
+                <div>
+                  <div className="d-flex justify-content-between">
+                    <SearchBar
+                      movies={movies}
+                      user={user}
+                      favorites={favorites}
+                      token={token}
+                      setUser={setUser}
+                    />
+                    <Nav.Link
+                      as={Link}
+                      to="/login"
+                      onClick={onLoggedOut}
+                      className="my-2 my-lg-0"
+                    >
+                      Logout
+                    </Nav.Link>
+                  </div>
+                </div>
               </>
             )}
           </Nav>
-          <SearchBar
-                  user={user}
-                  movies={movies}
-                  favorites={favorites}
-                  token={token}
-                  setUser={setUser}
-          />
-          <Nav.Link as={Link} to="/login" onClick={onLoggedOut}>
-                  Logout
-          </Nav.Link>
           <Nav className="ms-auto">
             {!user && (
               <>

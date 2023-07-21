@@ -12,6 +12,7 @@ export const ProfileView = ({
   setToken,
   onLoggedOut,
   movies,
+  favorites
 }) => {
   const { username } = useParams();
 
