@@ -48,7 +48,7 @@ export const NavigationBar = ({
                       as={Link}
                       to="/login"
                       onClick={onLoggedOut}
-                      className="my-2 my-lg-0"
+                      className="my-2 my-lg-0 ms-3"
                     >
                       Logout
                     </Nav.Link>
