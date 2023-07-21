@@ -69,7 +69,7 @@ export const MovieCard = ({ movie, user, token, setUser }) => {
           />
         ) : (
           <Heart
-            isClick={isclick}
+            isClick={true}
             onClick={() => {
               setclick(false);
               deleteFromFavorites();
