@@ -14,7 +14,7 @@ export const FavoriteMovies = ({ user, movies, token, setUser }) => {
         { favoriteMovies.map((movie) => {
             return (
               // <Col>{movie}</Col>
-              <Col xs={6} md={4} key={movie.id}>
+              <Col xs={12} s={8} md={4} className="mt-4"  key={movie.id}>
                 <MovieCard movie={movie} user={user} token={token} setUser={setUser} className="mb-5" />
               </Col>
             )

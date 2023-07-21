@@ -16,7 +16,7 @@ export const SimilarMovies = ({ movie, movies, user, favorites, token, setUser }
       <Row>
         {similarMovies.map((movie) => {
             return (
-            <Col key={movie._id}>
+            <Col xs={12} s={8} md={4} className="mt-4" key={movie._id}>
                 <MovieCard
                 movie={movie} user={user} favorites={favorites} token={token} setUser={setUser}
                 />
