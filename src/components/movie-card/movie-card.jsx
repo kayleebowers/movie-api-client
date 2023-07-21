@@ -21,7 +21,9 @@ export const MovieCard = ({ movie, user, token, setUser }) => {
           "Content-Type": "application/json",
         },
       }
-    ).then((response) => response.json()
+    ).then((response) =>
+      response
+        .json()
         .then((data) => {
           localStorage.setItem("user", JSON.stringify(data));
           setUser(data);
@@ -56,30 +58,42 @@ export const MovieCard = ({ movie, user, token, setUser }) => {
   };
 
   return (
-    <Card className="h-100 m-auto bg-light">
-      <Card.Img className="fluid h-100" variant="top" src={movie.ImagePath} />
-      <Card.Body className="h-50 d-flex flex-column align-items-center bg-light">
-        {!isFavorite ? (
-          <Heart
-            isClick={isclick}
-            onClick={() => {
-              setclick(true);
-              addToFavorites();
-            }}
-          />
-        ) : (
-          <Heart
-            isClick={true}
-            onClick={() => {
-              setclick(false);
-              deleteFromFavorites();
-            }}
-          />
-        )}
-        <Card.Title className="font-weight-bold my-3">{movie.Title}</Card.Title>
-        <Link to={`/movies/${encodeURIComponent(movie.Title)}`}>
-          <Button variant="primary">Learn more</Button>
-        </Link>
+    <Card className="h-100 m-auto bg-light mh-90 ">
+      <div className="position-relative" style={{minHeight: "80%"}}>
+        <Card.Img className="fluid h-100" variant="top" src={movie.ImagePath} />
+        <div
+          style={{ bottom: "80%", left: "75%" }}
+          className="ms-0 p-0 mw-10 position-absolute bg-transparent"
+        >
+          {!isFavorite ? (
+            <Heart
+              isClick={isclick}
+              style={{ border: "1px solid white" }}
+              onClick={() => {
+                setclick(true);
+                addToFavorites();
+              }}
+            />
+          ) : (
+            <Heart
+              isClick={true}
+              onClick={() => {
+                setclick(false);
+                deleteFromFavorites();
+              }}
+            />
+          )}
+        </div>
+      </div>
+      <Card.Body className="mh-10 d-flex justify-content-center bg-light">
+        <div className="d-flex flex-column align-items-center">
+          <Card.Title className="font-weight-bold my-3">
+            {movie.Title}
+          </Card.Title>
+          <Link to={`/movies/${encodeURIComponent(movie.Title)}`}>
+            <Button variant="primary">Learn more</Button>
+          </Link>
+        </div>
       </Card.Body>
     </Card>
   );
