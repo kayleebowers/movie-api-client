@@ -11,4 +11,12 @@ $danger: #881515;
     background-color: white;
 }
 
+@media (max-width: 774px) { 
+    .movieView {
+        margin: 0 auto;
+        max-width: 60%;
+        display: block;
+    }
+ }
+
 @import '~bootstrap/scss/bootstrap.scss';
