@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Button, Row, Col, Card, Nav } from "react-bootstrap";
+import { Row, Col } from "react-bootstrap";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 //import child components
@@ -9,6 +9,7 @@ import { LoginView } from "../login-view/login-view";
 import { SignUpView } from "../signup-view/signup-view";
 import { NavigationBar } from "../navigation-bar/navigation-bar";
 import { ProfileView } from "../profile-view/profile-view";
+import { SearchBar } from "./search-bar";
 
 export const MainView = () => {
   //set localStorage as default values of user/token
@@ -56,7 +57,7 @@ export const MainView = () => {
   };
   
   //define favorites
-  let favorites = user.Favorites.includes(movie.id);
+  let favorites = user.Favorites.includes(movies.id);
 
   //return list of movies
   return (
@@ -131,6 +132,7 @@ export const MainView = () => {
                   <Col>The list is empty!</Col>
                 ) : (
                   <>
+                    <SearchBar movies={movies} user={user} favorites={favorites} token={token} setUser={setUser}/>
                     {movies.map((movie) => {
                       return (
                         <Col xs={12} s={8} md={4} className="mt-4" key={movie._id}>
