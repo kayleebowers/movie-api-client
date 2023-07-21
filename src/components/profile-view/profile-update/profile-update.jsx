@@ -46,13 +46,13 @@ export const ProfileUpdate = ({ user, token, setUser }) => {
 
   return (
     <>
-      <Card className="m-5">
+      <Card className="m-5 bg-light">
         <Card.Title className="mx-auto pt-4">
           <h3>Update your information</h3>
         </Card.Title>
         <Card.Body>
-          <Form onSubmit={handleUpdate}>
-            <Form.Group controlId="formUsername" className="mb-3">
+          <Form onSubmit={handleUpdate} className="bg-light">
+            <Form.Group controlId="formUsername" className="mb-3 bg-light">
               <Form.Label>Username*</Form.Label>
               <Form.Control
                 type="text"

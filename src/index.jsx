@@ -13,7 +13,7 @@ import "./index.scss";
 const App = () => {
   return (
     <Container>
-      <MainView />
+      <MainView style={{fontFamily: "Quicksand"}} />
     </Container>
   );
 };

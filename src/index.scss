@@ -1,5 +1,14 @@
-@import '~bootstrap/scss/bootstrap.scss';
+$primary: #cb861a;
+$success: #adadac;
+$body-bg: #27383e;
+$danger: #460b0b;
 
-* {
+.font {
     font-family: 'Quicksand', sans-serif;
 }
+
+.card {
+    background-color: white;
+}
+
+@import '~bootstrap/scss/bootstrap.scss';

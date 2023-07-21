@@ -5,6 +5,7 @@ import { Button, Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Heart from "react-animated-heart";
 import { useState } from "react";
+import "../../index.scss";
 
 export const MovieCard = ({ movie, user, token, setUser }) => {
   const [isclick, setclick] = useState(false);
@@ -55,9 +56,9 @@ export const MovieCard = ({ movie, user, token, setUser }) => {
   };
 
   return (
-    <Card className="h-100 m-auto">
+    <Card className="h-100 m-auto bg-light">
       <Card.Img className="fluid h-100" variant="top" src={movie.ImagePath} />
-      <Card.Body className="h-50 d-flex flex-column align-items-center">
+      <Card.Body className="h-50 d-flex flex-column align-items-center bg-light">
         {!isFavorite ? (
           <Heart
             isClick={isclick}

@@ -30,11 +30,11 @@ export const ProfileInformation = ({ user, token, onLoggedOut }) => {
 
   return (
     <>
-      <Card className="m-5 h-99 d-flex justify-content-center align-items-center">
+      <Card className="m-5 h-99 d-flex justify-content-center align-items-center bg-light">
         <Card.Title className="pt-4">
           <h3>Your information</h3>
         </Card.Title>
-        <Card.Body className="px-4 mx-auto d-flex flex-column">
+        <Card.Body className="px-4 mx-auto d-flex flex-column bg-light">
           <p>Username: {user.Username}</p>
           <p>Email: {user.Email}</p>
           <p>Birthday: {user.Birthday}</p>
