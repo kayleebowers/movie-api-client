@@ -16,7 +16,7 @@ export const MainView = () => {
   const storedToken = localStorage.getItem("token");
 
   const [user, setUser] = useState(storedUser ? JSON.parse(storedUser) : null);
-  const [token, setToken] = useState(storedToken ? storedToken : null);
+  const [token, setToken] = useState(storedToken ? JSON.parse(storedToken) : null);
   const [movies, setMovies] = useState([]);
 
   //fetch API data
