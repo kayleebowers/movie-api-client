@@ -18,48 +18,29 @@ export const NavigationBar = ({
         <Navbar.Brand as={Link} to="/">
           myFlix
         </Navbar.Brand>
-        <Navbar.Toggle aria-controls="navbarScroll" />
-        <Navbar.Collapse id="navbarScroll">
-          <Nav
-            className="me-auto my-2 my-lg-0 w-100 d-flex justify-content-between"
-            style={{ maxHeight: "100px"}}
-            navbarScroll
-          >
-            {user && (
-              <>
-                <div className="d-flex">
-                  <Nav.Link as={Link} to="/">
-                    Home
-                  </Nav.Link>
-                  <Nav.Link as={Link} to={`/users/${user.Username}/`}>
-                    Profile
-                  </Nav.Link>
-                </div>
-                <div>
-                  <div className="d-flex justify-content-between">
-                    <SearchBar
-                      movies={movies}
-                      user={user}
-                      favorites={favorites}
-                      token={token}
-                      setUser={setUser}
-                    />
-                    <Nav.Link
-                      as={Link}
-                      to="/login"
-                      onClick={onLoggedOut}
-                      className="my-2 my-lg-0"
-                    >
-                      Logout
-                    </Nav.Link>
-                  </div>
-                </div>
-              </>
-            )}
-          </Nav>
-          <Nav className="ms-auto">
-            {!user && (
-              <>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Nav className="me-auto">
+          {user && (
+            <>
+              <Nav.Link as={Link} to="/">
+                Home
+              </Nav.Link>
+              <Nav.Link as={Link} to={`/users/${user.Username}/`}>
+                Profile
+              </Nav.Link>
+            </>
+          )}
+          { user && (
+            <>
+              <Nav.Link as={Link} to="/login" onClick={onLoggedOut}>
+                Logout
+              </Nav.Link>
+            </>
+          )}
+        </Nav>
+        <Nav className="ms-auto">
+          {!user && (
+            <>
                 <Navbar.Collapse className="justify-content-end">
                   <Nav.Link as={Link} to="/">
                     Login
