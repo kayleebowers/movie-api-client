@@ -9,7 +9,7 @@ export const FavoriteMovies = ({ user, movies, token, setUser }) => {
 
   return (
     <>
-      <h2>Your favorite movies</h2>
+      <h2 className="text-light mx-auto">Your favorite movies</h2>
       <Row>
         { favoriteMovies.map((movie) => {
             return (

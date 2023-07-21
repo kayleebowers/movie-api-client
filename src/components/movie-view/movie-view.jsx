@@ -13,13 +13,13 @@ export const MovieView = ({ movies, user, favorites, token, setUser }) => {
 
   return (
     <>
-      <Card className="mb-4 d-flex justify-content-between border-0">
+      <Card className="mb-4 d-flex justify-content-between border-0 bg-light mt-5">
         <Row className="d-flex justify-content-between">
         <Col md={3}>
-          <Card.Img className="mw-60 my-4" src={movie.ImagePath} alt="movie poster" />
+          <Card.Img className="mw-60 my-4 mx-3" src={movie.ImagePath} alt="movie poster" />
         </Col>
         <Col md={9}>
-          <Card.Body className="my-4">
+          <Card.Body className="my-4 bg-light">
             <Card.Title>{movie.Title}</Card.Title>
             <Card.Text>Description: {movie.Description}</Card.Text>
             <Card.Text>Director: {movie.Director.Name}</Card.Text>
@@ -31,7 +31,7 @@ export const MovieView = ({ movies, user, favorites, token, setUser }) => {
         </Row>
         <Col className="mt-4 mx-auto mr-4">
           <Link to={'/'}>
-            <Button>Back</Button>
+            <Button className="mb-3">Back</Button>
           </Link>
         </Col>
       </Card>

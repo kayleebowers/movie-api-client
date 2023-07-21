@@ -28,8 +28,9 @@ export const SearchBar = ({ movies, user, favorites, token, setUser }) => {
           placeholder="Search by title"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          className="me-2"
-        aria-label="Search"
+          className="me-2 bg-transparent"
+          style={{border: "1px solid #cb861a"}}
+          aria-label="Search"
         />
         <Button type="submit" variant="outline-success">Search</Button>
       </Form>
