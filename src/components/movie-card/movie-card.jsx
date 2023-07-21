@@ -87,7 +87,7 @@ export const MovieCard = ({ movie, user, token, setUser }) => {
       </div>
       <Card.Body className="mh-10 d-flex justify-content-center bg-light">
         <div className="d-flex flex-column align-items-center">
-          <Card.Title className="font-weight-bold my-3">
+          <Card.Title className="font-weight-bold my-3" style={{fontFamily: "'Victor Mono', monospace"}}>
             {movie.Title}
           </Card.Title>
           <Link to={`/movies/${encodeURIComponent(movie.Title)}`}>

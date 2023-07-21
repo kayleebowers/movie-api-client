@@ -76,7 +76,7 @@ export const MainView = () => {
                   <Navigate to="/" />
                 ) : (
                   <Col>
-                    <SignUpView />
+                    <SignUpView style={{fontFamily: "'Victor Mono', monospace"}} />
                   </Col>
                 )}
               </>
@@ -133,7 +133,7 @@ export const MainView = () => {
                   <>
                     {movies.map((movie) => {
                       return (
-                        <Col xs={12} s={8} md={4} className="mt-4" key={movie._id}>
+                        <Col xs={12} s={8} md={4} className="my-4" key={movie._id}>
                           <MovieCard movie={movie} user={user} token={token} setUser={setUser} favorites={favorites} />
                         </Col>
                       );
