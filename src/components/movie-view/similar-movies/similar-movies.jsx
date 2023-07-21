@@ -12,7 +12,7 @@ export const SimilarMovies = ({ movie, movies, user, favorites, token, setUser }
   
   return (
     <>
-      <h2>Similar movies you may enjoy</h2>
+      <h2 className="text-light mx-auto mt-5 mb-4">Movies you may enjoy</h2>
       <Row>
         {similarMovies.map((movie) => {
             return (

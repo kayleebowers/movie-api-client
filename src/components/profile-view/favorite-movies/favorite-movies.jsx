@@ -9,13 +9,13 @@ export const FavoriteMovies = ({ user, movies, token, setUser }) => {
 
   return (
     <>
-      <h2 className="text-light mx-auto">Your favorite movies</h2>
+      <h2 className="text-light mx-auto mt-5 mb-4">Your favorite movies</h2>
       <Row>
         { favoriteMovies.map((movie) => {
             return (
               // <Col>{movie}</Col>
               <Col xs={6} md={4} key={movie.id}>
-                <MovieCard movie={movie} user={user} token={token} setUser={setUser} />
+                <MovieCard movie={movie} user={user} token={token} setUser={setUser} className="mb-5" />
               </Col>
             )
         })
