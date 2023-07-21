@@ -63,7 +63,7 @@ export const MainView = () => {
   return (
     <BrowserRouter>
       <NavigationBar 
-        user={user}
+        user={user} movies={movies} favorites={favorites} token={token} setUser={setUser}
         onLoggedOut={onLoggedOut}
       />
       <Row>
@@ -132,7 +132,6 @@ export const MainView = () => {
                   <Col>The list is empty!</Col>
                 ) : (
                   <>
-                    <SearchBar movies={movies} user={user} favorites={favorites} token={token} setUser={setUser}/>
                     {movies.map((movie) => {
                       return (
                         <Col xs={12} s={8} md={4} className="mt-4" key={movie._id}>
