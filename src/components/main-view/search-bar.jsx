@@ -21,15 +21,17 @@ export const SearchBar = ({ movies, user, favorites, token, setUser }) => {
   };
   return (
     <Row>
-      <Form onSubmit={handleSearch} className="d-flex justify-content-end mt-4">
+      <Form onSubmit={handleSearch} className="d-flex" >
+        {/* className="d-flex justify-content-end mt-4" */}
         <Form.Control
           type="search"
           placeholder="Search by title"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          className="w-50"
+          className="me-2"
+        aria-label="Search"
         />
-        <Button type="submit">Search</Button>
+        <Button type="submit" variant="outline-success">Search</Button>
       </Form>
     </Row>
   );
