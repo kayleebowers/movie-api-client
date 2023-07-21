@@ -16,6 +16,22 @@ $danger: #881515;
         margin: 0 auto;
         max-width: 60%;
         display: block;
+    };
+} 
+
+@media (max-width: 1000px) {
+    .navLinks, .navSearch {
+        flex-direction: column;
+        justify-content: flex-start;
+    };
+
+    .navSearch {
+        flex-direction: column-reverse;
+    };
+
+    .loginButton {
+        margin: 0;
+        padding-left: 0;
     }
  }
 

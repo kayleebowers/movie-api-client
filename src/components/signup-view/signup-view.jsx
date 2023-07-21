@@ -34,14 +34,15 @@ export const SignUpView = () => {
 
   return (
     <>
-      <Card className="w-50 mx-auto my-5">
+      <Card className="w-50 mx-auto my-5 bg-light">
         <Card.Title className="mx-auto pt-4">Register</Card.Title>
         <Card.Body>
-          <Form>
+          <Form className="bg-light">
             <Form.Group controlId="formUsername" className="mb-3">
               <Form.Label>Username*</Form.Label>
               <Form.Control
                 type="text"
+                className="bg-light"
                 minLength="6"
                 value={username}
                 required
@@ -55,6 +56,7 @@ export const SignUpView = () => {
 
               <Form.Control
                 type="password"
+                className="bg-light"
                 required
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
@@ -65,6 +67,7 @@ export const SignUpView = () => {
 
               <Form.Control
                 type="email"
+                className="bg-light"
                 value={email}
                 required
                 minLength="6"
@@ -78,6 +81,7 @@ export const SignUpView = () => {
 
               <Form.Control
                 type="date"
+                className="bg-light"
                 value={birthday}
                 required
                 onChange={(e) => setBirthday(e.target.value)}

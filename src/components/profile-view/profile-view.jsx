@@ -45,10 +45,10 @@ export const ProfileView = ({
   return (
     <>
       <Row className="mx-auto">
-        <Col lg={5} md={6} xs={12}>
+        <Col xl={5} lg={12} >
           <ProfileInformation user={user} token={token} onLoggedOut={onLoggedOut} />
         </Col>
-        <Col lg={7} md={6} xs={12}>
+        <Col xl={7} lg={12}>
           <ProfileUpdate
             user={user}
             token={token}

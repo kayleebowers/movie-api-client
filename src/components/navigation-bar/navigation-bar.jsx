@@ -22,12 +22,12 @@ export const NavigationBar = ({
         <Navbar.Collapse id="navbarScroll">
           <Nav
             className="me-auto my-2 my-lg-0 w-100 d-flex justify-content-between"
-            style={{ maxHeight: "100px"}}
+            style={{ maxHeight: "250px"}}
             navbarScroll
           >
             {user && (
               <>
-                <div className="d-flex">
+                <div className="d-flex justify-content-end navLinks">
                   <Nav.Link as={Link} to="/">
                     Home
                   </Nav.Link>
@@ -36,7 +36,7 @@ export const NavigationBar = ({
                   </Nav.Link>
                 </div>
                 <div>
-                  <div className="d-flex justify-content-between">
+                  <div className="d-flex justify-content-end navSearch">
                     <SearchBar
                       movies={movies}
                       user={user}
@@ -48,7 +48,7 @@ export const NavigationBar = ({
                       as={Link}
                       to="/login"
                       onClick={onLoggedOut}
-                      className="my-2 my-lg-0 ms-3"
+                      className="my-2 my-lg-0 ms-3 loginButton"
                     >
                       Logout
                     </Nav.Link>

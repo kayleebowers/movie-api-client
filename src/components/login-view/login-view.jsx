@@ -45,13 +45,14 @@ export const LoginView = ({ onLoggedIn }) => {
   };
 
   return (
-    <Card className="w-50 mx-auto my-5">
+    <Card className="w-50 mx-auto my-5 bg-light">
       <Card.Title className="mx-auto pt-4">Sign In</Card.Title>
       <Card.Body>
-        <Form onSubmit={handleSubmit}>
+        <Form onSubmit={handleSubmit} className="bg-light">
           <Form.Group controlId="formUsername" className="mb-3">
             <Form.Label>Username* </Form.Label>
             <Form.Control
+              className="bg-light"
               type="text"
               value={username}
               onChange={(e) => {
@@ -64,6 +65,7 @@ export const LoginView = ({ onLoggedIn }) => {
           <Form.Group controlId="formPassword" className="mb-3">
             <Form.Label>Password* </Form.Label>
             <Form.Control
+              className="bg-light"
               type="password"
               value={password}
               onChange={(e) => {
