@@ -16,16 +16,16 @@ export const MovieView = ({ movies, user, favorites, token, setUser }) => {
       <Card className="mb-4 d-flex border-0 bg-light mt-5">
         <Row className="d-flex justify-content-center align-content-center bg-light movieView">
         <Col lg={4} className="mx auto">
-          <Card.Img className="mh-60 p-4" src={movie.ImagePath} alt="movie poster" />
+          <Card.Img className="mh-60 p-4 pt-5" src={movie.ImagePath} alt="movie poster" />
         </Col>
         <Col lg={8}>
           <Card.Body className="my-4 bg-light text-xs-center">
             <Card.Title className="mb-4 font-weight-bold">{movie.Title}</Card.Title>
-            <Card.Text>Description: {movie.Description}</Card.Text>
+            <Card.Text>{movie.Description}</Card.Text>
             <Card.Text>Director: {movie.Director.Name}</Card.Text>
-            <Card.Text>About the director: {movie.Director.Bio}</Card.Text>
+            <Card.Text>{movie.Director.Bio}</Card.Text>
             <Card.Text>Genre: {movie.Genre.Name}</Card.Text>
-            <Card.Text>About the genre: {movie.Genre.Description}</Card.Text>
+            <Card.Text>{movie.Genre.Description}</Card.Text>
           </Card.Body>
           <Card.Footer className="mt-4 bg-light d-flex justify-content-center">
             <Link to={'/'} className="mt-4">
