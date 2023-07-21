@@ -6,10 +6,9 @@ import { Link } from "react-router-dom";
 import {SimilarMovies} from "./similar-movies/similar-movies";
 
 //display movie data 
-export const MovieView = ({ movies }) => {
+export const MovieView = ({ movies, user, favorites, token, setUser }) => {
   //returning /movies/:title object through useParams
   const { title } = useParams();
-
   const movie = movies.find((movie) => movie.Title === title);
 
   return (
@@ -36,7 +35,7 @@ export const MovieView = ({ movies }) => {
           </Link>
         </Col>
       </Card>
-      <SimilarMovies movie={movie} movies={movies}/>
+      <SimilarMovies movie={movie} movies={movies} user={user} favorites={favorites} token={token} setUser={setUser} />
     </>
   );
 };

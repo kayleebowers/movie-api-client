@@ -54,6 +54,9 @@ export const MainView = () => {
     setToken(null);
     localStorage.clear();
   };
+  
+  //define favorites
+  let favorites = user.Favorites.includes(movie.id);
 
   //return list of movies
   return (
@@ -111,7 +114,7 @@ export const MainView = () => {
                   <Col>The list is empty!</Col>
                 ) : (
                   <Col>
-                    <MovieView movies={movies} />
+                    <MovieView movies={movies} user={user} favorites={favorites} token={token} setUser={setUser} />
                   </Col>
                 )}
               </>
@@ -131,7 +134,7 @@ export const MainView = () => {
                     {movies.map((movie) => {
                       return (
                         <Col xs={12} s={8} md={4} className="mt-4" key={movie._id}>
-                          <MovieCard movie={movie} user={user} token={token} setUser={setUser} />
+                          <MovieCard movie={movie} user={user} token={token} setUser={setUser} favorites={favorites} />
                         </Col>
                       );
                     })}
