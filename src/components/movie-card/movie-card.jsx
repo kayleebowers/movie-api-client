@@ -6,9 +6,9 @@ import { Link } from "react-router-dom";
 import Heart from "react-animated-heart";
 import { useState } from "react";
 
-export const MovieCard = ({ movie, user, token, setUser, favorites }) => {
+export const MovieCard = ({ movie, user, token, setUser }) => {
   const [isclick, setclick] = useState(false);
-  const [isFavorite, setFavorite] = useState(favorites);
+  const [isFavorite, setFavorite] = useState(user.Favorites.includes(movie.id));
 
   const addToFavorites = () => {
     fetch(
