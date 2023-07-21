@@ -1,23 +1,24 @@
 import { Button, Row, Col, Card, Nav, Form } from "react-bootstrap";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export const SearchBar = ({movies, user, favorites, token, setUser}) => {
     const [search, setSearch] = useState("");
     const movie = movies.find((movie) => movie.Title.toUpperCase() === search.toUpperCase());
-    
-    const handleSearch = () => {
+    const navigate = useNavigate();
+
+    const handleSearch = (event) => {
+        event.preventDefault();
         if (movie) {
-            <Link to={`/movies/${encodeURIComponent(movie.Title)}`}></Link>
+            navigate(`/movies/${movie.Title}`);
         } else {
-            <Col>No movie found</Col>
+            alert("No movie found");
         }
     }
   return (
     <Row>
       <Form onSubmit={handleSearch}>
-        <Form.Group className="mb-3" controlId="search_input">
-          <Form.Control type="text" placeholder="Search by title" value={search} onChange={(e) => setSearch(e.target.value)} />
-        </Form.Group>
+        <Form.Control type="search" placeholder="Search by title" value={search} onChange={(e) => setSearch(e.target.value)} />
         <Button type="submit">Search</Button>
       </Form>
     </Row>
