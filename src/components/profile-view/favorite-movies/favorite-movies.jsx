@@ -15,7 +15,7 @@ export const FavoriteMovies = ({ user, movies }) => {
             return (
               // <Col>{movie}</Col>
               <Col xs={6} md={4} key={movie.id}>
-                <MovieCard movie={movie} />
+                <MovieCard movie={movie} user={user} />
               </Col>
             )
         })
