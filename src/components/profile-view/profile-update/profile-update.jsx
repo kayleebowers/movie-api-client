@@ -7,9 +7,6 @@ export const ProfileUpdate = ({ user, token, setUser }) => {
   const [email, setEmail] = useState(user.Email);
   const [birthday, setBirthday] = useState(user.Birthday);
 
-  // const storedUser = localStorage.getItem("user") ? JSON.parse(localStorage.getItem(user)) : null;
-  // setUser(storedUser);
-
   const handleUpdate = (event) => {
     event.preventDefault();
 
@@ -19,8 +16,7 @@ export const ProfileUpdate = ({ user, token, setUser }) => {
       Email: email,
       Birthday: birthday,
     };
-    // 64b80ef254a9fe60dc10a048
-    // 64b80ef254a9fe60dc10a048
+
     fetch(`https://movies-app1-3d6bd65a6f09.herokuapp.com/users/${user._id}`, {
       method: "PUT",
       headers: {
