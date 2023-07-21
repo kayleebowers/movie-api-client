@@ -7,9 +7,10 @@ import Heart from "react-animated-heart";
 import { useState } from "react";
 
 export const MovieCard = ({ movie, user, token, setUser }) => {
+  console.log(user.Favorites);
   const [isclick, setclick] = useState(false);
-  const [isFavorite, setFavorite] = useState(false);
- console.log(user);
+  const [isFavorite, setFavorite] = useState(user.Favorites.includes(movie.id));
+
   const addToFavorites = () => {
     fetch(
       `https://movies-app1-3d6bd65a6f09.herokuapp.com/users/${user._id}/movies/${movie.id}`,
