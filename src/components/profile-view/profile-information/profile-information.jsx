@@ -10,7 +10,7 @@ export const ProfileInformation = ({ user, token, onLoggedOut }) => {
 
   const handleDelete = () => {
     fetch(
-      `https://movies-app1-3d6bd65a6f09.herokuapp.com/users/${user.Username}`,
+      `https://movies-app1-3d6bd65a6f09.herokuapp.com/users/${user._id}`,
       {
         method: "DELETE",
         headers: {
@@ -44,12 +44,12 @@ export const ProfileInformation = ({ user, token, onLoggedOut }) => {
         </Card.Body>
       </Card>
       <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
+        <Modal.Header closeButton className="bg-light">
           <Modal.Title>
-            Are you sure you want to delete your account?
+            Delete your account?
           </Modal.Title>
         </Modal.Header>
-        <Modal.Footer>
+        <Modal.Footer className="bg-light">
           <Button variant="danger" onClick={handleDelete}>
             Delete
           </Button>
