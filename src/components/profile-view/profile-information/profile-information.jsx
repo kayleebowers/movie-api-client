@@ -30,8 +30,8 @@ export const ProfileInformation = ({ user, token, onLoggedOut }) => {
 
   return (
     <>
-      <Card className="m-5 h-99 d-flex justify-content-center align-items-center bg-light">
-        <Card.Title className="pt-4">
+      <Card className="m-5 bg-light w-100 mh-40">
+        <Card.Title className="pt-4 d-flex justify-content-center">
           <h3>Your information</h3>
         </Card.Title>
         <Card.Body className="px-4 mx-auto d-flex flex-column bg-light">
@@ -45,7 +45,7 @@ export const ProfileInformation = ({ user, token, onLoggedOut }) => {
       </Card>
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton className="bg-light">
-          <Modal.Title>
+          <Modal.Title className="mx-auto">
             Delete your account?
           </Modal.Title>
         </Modal.Header>

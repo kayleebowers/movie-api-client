@@ -46,8 +46,8 @@ export const ProfileUpdate = ({ user, token, setUser }) => {
 
   return (
     <>
-      <Card className="m-5 bg-light">
-        <Card.Title className="mx-auto pt-4">
+      <Card className="m-5 bg-light w-100">
+        <Card.Title className="pt-4 d-flex justify-content-center">
           <h3>Update your information</h3>
         </Card.Title>
         <Card.Body>
