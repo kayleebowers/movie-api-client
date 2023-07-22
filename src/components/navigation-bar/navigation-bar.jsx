@@ -2,7 +2,7 @@ import Container from "react-bootstrap/Container";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import { Link } from "react-router-dom";
-import { SearchBar } from "../main-view/search-bar";
+import { SearchBar } from "../search-bar/search-bar";
 
 export const NavigationBar = ({
   user,
@@ -48,7 +48,7 @@ export const NavigationBar = ({
                       as={Link}
                       to="/login"
                       onClick={onLoggedOut}
-                      className="my-2 my-lg-0 ms-3 loginButton"
+                      className="mb-2"
                     >
                       Logout
                     </Nav.Link>

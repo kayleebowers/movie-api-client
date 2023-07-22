@@ -28,7 +28,7 @@ export const SearchBar = ({ movies, user, favorites, token, setUser }) => {
           placeholder="Search by title"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          className="me-2 bg-transparent"
+          className="me-2 bg-transparent w-60"
           style={{border: "1px solid #cb861a"}}
           aria-label="Search"
         />
