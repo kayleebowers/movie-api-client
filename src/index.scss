@@ -7,23 +7,7 @@ $danger: #881515;
     font-family: 'Victor Mono', monospace !important;
 }
 
-row.no-margin {
-    margin:0 !important;
-}
-
-.card {
-    background-color: white;
-}
-
-@media (max-width: 774px) { 
-    .movieView {
-        margin: 0 auto;
-        max-width: 60%;
-        display: block;
-    };
-} 
-
-@media (max-width: 1000px) {
+@media (max-width: 992px) {
     .navLinks, .navSearch {
         flex-direction: column;
         justify-content: flex-start;
@@ -36,6 +20,11 @@ row.no-margin {
     .loginButton {
         margin: 0;
         padding-left: 0;
+    }
+
+    .movieView_component {
+        flex-direction: column-reverse !important;
+        align-items: flex-start;
     }
  }
 

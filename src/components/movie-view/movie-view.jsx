@@ -4,6 +4,7 @@ import { Col, Row, Button, Card } from "react-bootstrap";
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
 import {SimilarMovies} from "./similar-movies/similar-movies";
+import "./movie-view.scss";
 
 //display movie data 
 export const MovieView = ({ movies, user, favorites, token, setUser }) => {
@@ -13,14 +14,15 @@ export const MovieView = ({ movies, user, favorites, token, setUser }) => {
 
   return (
     <>
-      <Card className="mb-4 d-flex border-0 bg-light mt-5">
-        <Row className="d-flex justify-content-center align-content-center bg-light movieView">
-        <Col lg={4} className="mx auto">
-          <Card.Img className="mh-60 p-4 pt-5" src={movie.ImagePath} alt="movie poster" />
+      <Card className="mb-4 d-flex flex-row bg-light mt-5 align-items-center movieView_component">
+        <Col xl={5} lg={12} className="d-flex align-items-center justify-content-center mx-auto">
+          <Card.Img src={movie.ImagePath} className="movieView_component--image" alt="movie poster" style={{minWidth: "400px"}} />
         </Col>
-        <Col lg={8}>
+        <Col xl={7} lg={12}>
           <Card.Body className="my-4 bg-light text-xs-center">
-            <Card.Title className="mb-4 font-weight-bold">{movie.Title}</Card.Title>
+            <div className="d-flex align-items-center justify-content-center">
+              <Card.Title className="mb-4 font-weight-bold mx-auto">{movie.Title}</Card.Title>
+            </div>
             <Card.Text>{movie.Description}</Card.Text>
             <Card.Text>Director: {movie.Director.Name}</Card.Text>
             <Card.Text>{movie.Director.Bio}</Card.Text>
@@ -33,7 +35,6 @@ export const MovieView = ({ movies, user, favorites, token, setUser }) => {
             </Link>
           </Card.Footer>
         </Col>
-        </Row>
       </Card>
       <SimilarMovies movie={movie} movies={movies} user={user} favorites={favorites} token={token} setUser={setUser} />
     </>
