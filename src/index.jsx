@@ -12,8 +12,8 @@ import "./index.scss";
 //main component
 const App = () => {
   return (
-    <Container fluid>
-      <MainView />
+    <Container>
+      <MainView style={{fontFamily: "Quicksand"}} />
     </Container>
   );
 };

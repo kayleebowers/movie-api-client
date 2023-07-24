@@ -1,0 +1,10 @@
+@media (max-width: 992px) {
+    .movieView_component {
+        flex-direction: column !important;
+        align-items: flex-start;
+    }
+
+    .movieView_component--image {
+        margin-top: 10px;
+    }
+ }
