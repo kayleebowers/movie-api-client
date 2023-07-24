@@ -32,9 +32,9 @@ The application files can also be downloaded and viewed by using the following c
 
 ## Screenshots
 ### Homepage
-![screenshot of the myFlix homepage](/../<screenshots>/path/to/Homepage.png?raw=true "Homepage")
+![screenshot of the myFlix homepage](/../<screenshots>/path/to/Movie View.png?raw=true "Homepage")
 ### Single movie view with movies recommended by genre
-![screenshot of a myFlix movie page]([https://drive.google.com/file/d/1qjHn75Vh0D_MFMB0ien1V8ni7VfWR9r2/view?usp=drive_link](https://drive.google.com/file/d/1yrh3_-5-epuJTJD0QSut-8KbovgVSAGU/view?usp=drive_link))
+![screenshot of a myFlix movie page](https://drive.google.com/file/d/1yrh3_-5-epuJTJD0QSut-8KbovgVSAGU/view)
 ### Profile view displaying favorite movies and user information
-![screenshot of user's favorite movies]([https://drive.google.com/file/d/1qjHn75Vh0D_MFMB0ien1V8ni7VfWR9r2/view?usp=drive_link](https://drive.google.com/file/d/1TKlNPYeKwS4gLSokzqVTR5zQzg-nmYcP/view?usp=drive_link))
-![screenshot of user's information]([https://drive.google.com/file/d/1qjHn75Vh0D_MFMB0ien1V8ni7VfWR9r2/view?usp=drive_link](https://drive.google.com/file/d/15gZTEU1zPWSqIj0JWovie3HXT1IWxwV4/view?usp=drive_link)https://drive.google.com/file/d/15gZTEU1zPWSqIj0JWovie3HXT1IWxwV4/view?usp=drive_link)
+![screenshot of user's favorite movies](https://drive.google.com/file/d/1qjHn75Vh0D_MFMB0ien1V8ni7VfWR9r2/view?usp=drive_link](https://drive.google.com/file/d/1TKlNPYeKwS4gLSokzqVTR5zQzg-nmYcP/view?usp=drive_link))
+![screenshot of user's information](https://drive.google.com/file/d/1qjHn75Vh0D_MFMB0ien1V8ni7VfWR9r2/view?usp=drive_link](https://drive.google.com/file/d/15gZTEU1zPWSqIj0JWovie3HXT1IWxwV4/view?usp=drive_link)https://drive.google.com/file/d/15gZTEU1zPWSqIj0JWovie3HXT1IWxwV4/view?usp=drive_link)
