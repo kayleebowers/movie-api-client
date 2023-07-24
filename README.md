@@ -32,10 +32,11 @@ The application files can also be downloaded and viewed by using the following c
 
 ## Screenshots
 ### Homepage
-<img width="400 alt="screenshot of the myFlix homepage" src="https://github.com/kayleebowers/movie-api-client/blob/e9fcbe0a986883eafa4d33dc45505536c8599cc1/Homepage.png" />
+[![Homepage.png](https://i.postimg.cc/CLxWqXw1/Homepage.png)](https://postimg.cc/BtRYWhL9)
 
 ### Single movie view with movies recommended by genre
-![screenshot of a myFlix movie page]([https://drive.google.com/file/d/1yrh3_-5-epuJTJD0QSut-8KbovgVSAGU/view](https://github.com/kayleebowers/movie-api-client/blob/e9fcbe0a986883eafa4d33dc45505536c8599cc1/Homepage.png))
+[![Movie-View.png](https://i.postimg.cc/XYFxGkBq/Movie-View.png)](https://postimg.cc/JsrjSJqC)
+
 ### Profile view displaying favorite movies and user information
-![screenshot of user's favorite movies](https://drive.google.com/file/d/1qjHn75Vh0D_MFMB0ien1V8ni7VfWR9r2/view?usp=drive_link](https://drive.google.com/file/d/1TKlNPYeKwS4gLSokzqVTR5zQzg-nmYcP/view?usp=drive_link))
-![screenshot of user's information](https://drive.google.com/file/d/1qjHn75Vh0D_MFMB0ien1V8ni7VfWR9r2/view?usp=drive_link](https://drive.google.com/file/d/15gZTEU1zPWSqIj0JWovie3HXT1IWxwV4/view?usp=drive_link)https://drive.google.com/file/d/15gZTEU1zPWSqIj0JWovie3HXT1IWxwV4/view?usp=drive_link)
+[![Profile-view.png](https://i.postimg.cc/C1KjNG5j/Profile-view.png)](https://postimg.cc/jWGwqJz5)
+[![User-information.png](https://i.postimg.cc/GpXDH4K9/User-information.png)](https://postimg.cc/p9nrSXgt)
