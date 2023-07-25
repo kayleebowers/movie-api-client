@@ -5,8 +5,11 @@ import { useNavigate } from "react-router-dom";
 export const SearchBar = ({ movies, user, favorites, token, setUser }) => {
   const [search, setSearch] = useState("");
   const movie = movies.find(
-    (movie) => movie.Title.toUpperCase() === search.toUpperCase()
+    (movie) => {
+      return movie.Title.toUpperCase().includes(search.toUpperCase());
+    }
   );
+  console.log(movie);
 
   const navigate = useNavigate();
 
