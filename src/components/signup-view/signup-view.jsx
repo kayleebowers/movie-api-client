@@ -1,11 +1,14 @@
 import { useState } from "react";
 import { Button, Card, Col, Form } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 
 export const SignUpView = () => {
   const [username, setUsername] = useState(null);
   const [password, setPassword] = useState(null);
   const [email, setEmail] = useState(null);
   const [birthday, setBirthday] = useState(null);
+  
+  const navigate = useNavigate();
 
   const handleSignUp = (event) => {
     event.preventDefault();
@@ -26,6 +29,7 @@ export const SignUpView = () => {
     }).then((response) => {
       if (response.ok) {
         alert("You are registered!");
+        navigate("/login");
       } else {
         alert("Something went wrong.");
       }
