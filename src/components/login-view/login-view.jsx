@@ -29,7 +29,6 @@ export const LoginView = ({ onLoggedIn }) => {
       })
       //pass user and token to MainView
       .then((data) => {
-        console.log("Login response: " + data);
         if (data.user) {
           //store user info so user won't have to re-auth on reload
           localStorage.setItem("user", JSON.stringify(data.user));

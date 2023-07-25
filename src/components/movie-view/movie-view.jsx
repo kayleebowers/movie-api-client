@@ -40,16 +40,3 @@ export const MovieView = ({ movies, user, favorites, token, setUser }) => {
     </>
   );
 };
-
-// //define props constraints
-// MovieView.propTypes = {
-//   movies: PropTypes.shape([{
-//     Title: PropTypes.string.isRequired,
-//     ImagePath: PropTypes.string.isRequired,
-//     Description: PropTypes.string,
-//     Director: PropTypes.string,
-//     Bio: PropTypes.string,
-//     Genre: PropTypes.string,
-//     GenreDescription: PropTypes.string
-//   }]).isRequired
-// };

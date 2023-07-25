@@ -11,12 +11,14 @@ import { NavigationBar } from "../navigation-bar/navigation-bar";
 import { ProfileView } from "../profile-view/profile-view";
 
 export const MainView = () => {
+  const api = "https://movies-app1-3d6bd65a6f09.herokuapp.com";
+
   //set localStorage as default values of user/token
   const storedUser = localStorage.getItem("user");
   const storedToken = localStorage.getItem("token");
 
   const [user, setUser] = useState(storedUser ? JSON.parse(storedUser) : null);
-  const [token, setToken] = useState(storedToken ? JSON.parse(storedToken) : null);
+  const [token, setToken] = useState(storedToken ? storedToken : null);
   const [movies, setMovies] = useState([]);
 
   //fetch API data
@@ -25,7 +27,7 @@ export const MainView = () => {
     if (!token) {
       return;
     }
-    fetch("https://movies-app1-3d6bd65a6f09.herokuapp.com/movies", {
+    fetch(`${api}/movies`, {
       //pass bearer authorization in header to make authenticated API requests
       headers: { Authorization: `Bearer ${token}` },
     })

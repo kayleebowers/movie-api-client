@@ -37,7 +37,6 @@ export const ProfileUpdate = ({ user, token, setUser }) => {
       .then((data) => {
         localStorage.setItem("user", JSON.stringify(data));
         setUser(data);
-        console.log({ data });
       })
       .catch((error) => {
         console.error(error);

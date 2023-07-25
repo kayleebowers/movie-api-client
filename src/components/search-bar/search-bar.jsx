@@ -9,7 +9,6 @@ export const SearchBar = ({ movies, user, favorites, token, setUser }) => {
       return movie.Title.toUpperCase().includes(search.toUpperCase());
     }
   );
-  console.log(movie);
 
   const navigate = useNavigate();
 
