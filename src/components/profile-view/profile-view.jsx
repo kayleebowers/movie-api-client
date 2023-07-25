@@ -44,11 +44,6 @@ export const ProfileView = ({
 
   return (
     <>
-      <Row>
-        <Col>
-          <FavoriteMovies user={user} movies={movies} token={token} setUser={setUser}/>
-        </Col>
-      </Row>
       <Row className="d-flex justify-content-around">
         <Col xl={6} md={12} className="d-flex justify-content-center mh-60">
           <ProfileInformation user={user} token={token} onLoggedOut={onLoggedOut} />
@@ -60,6 +55,11 @@ export const ProfileView = ({
             setUser={setUser}
             setToken={setToken}
           /> 
+        </Col>
+      </Row>
+      <Row>
+        <Col>
+          <FavoriteMovies user={user} movies={movies} token={token} setUser={setUser}/>
         </Col>
       </Row>
     </>
