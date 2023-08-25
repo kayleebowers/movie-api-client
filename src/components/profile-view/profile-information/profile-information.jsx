@@ -1,8 +1,13 @@
 import { useState } from "react";
 import { Button, Card, Col, Form } from "react-bootstrap";
 import Modal from "react-bootstrap/Modal";
+import { useSelector } from "react-redux";
 
-export const ProfileInformation = ({ user, token, onLoggedOut }) => {
+export const ProfileInformation = ({ onLoggedOut }) => {
+  // get state from redux
+  const { user } = useSelector(state => state.user);
+  const { token } = useSelector(state => state.user);
+  
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);

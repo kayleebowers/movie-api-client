@@ -3,7 +3,9 @@ import { MovieCard } from "../../movie-card/movie-card";
 import { Col, Row, Button, Card } from "react-bootstrap";
 import { useSelector } from "react-redux";
 
-export const FavoriteMovies = ({ user, token, setUser }) => {
+export const FavoriteMovies = () => {
+  // get state, dispatch from redux
+  const { user } = useSelector(state => state.user);
   const { movies } = useSelector(state => state.movies);
 
   //get favoriteMovies array
@@ -19,7 +21,7 @@ export const FavoriteMovies = ({ user, token, setUser }) => {
         { favoriteMovies.map((movie) => {
             return (
               <Col xs={12} s={8} md={4} className="mt-4"  key={movie.id}>
-                <MovieCard movie={movie} user={user} token={token} setUser={setUser} className="mb-5" />
+                <MovieCard movie={movie} className="mb-5" />
               </Col>
             )
         })

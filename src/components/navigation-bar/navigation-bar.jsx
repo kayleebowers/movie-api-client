@@ -5,14 +5,9 @@ import { Link } from "react-router-dom";
 import { SearchBar } from "../search-bar/search-bar";
 import { useSelector } from "react-redux";
 
-export const NavigationBar = ({
-  user,
-  onLoggedOut,
-  favorites,
-  token,
-  setUser,
-}) => {
+export const NavigationBar = ({onLoggedOut, favorites}) => {
   const { movies } = useSelector(state => state.movies);
+  const { user } = useSelector(state => state.user);
 
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
@@ -40,10 +35,7 @@ export const NavigationBar = ({
                 <div>
                   <div className="d-flex justify-content-end navSearch">
                     <SearchBar
-                      user={user}
                       favorites={favorites}
-                      token={token}
-                      setUser={setUser}
                     />
                     <Nav.Link
                       as={Link}

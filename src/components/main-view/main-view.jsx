@@ -3,6 +3,7 @@ import { Row, Col } from "react-bootstrap";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { setMovies } from "../../redux/reducers/movies";
+import { setUser, setToken } from "../../redux/reducers/user";
 
 //import child components
 import { MovieCard } from "../movie-card/movie-card";
@@ -15,15 +16,22 @@ import { ProfileView } from "../profile-view/profile-view";
 export const MainView = () => {
   const api = "https://movies-app1-3d6bd65a6f09.herokuapp.com";
 
-  // //set localStorage as default values of user/token
-  // const storedUser = localStorage.getItem("user");
-  // const storedToken = localStorage.getItem("token");
-  // const [user, setUser] = useState(storedUser ? JSON.parse(storedUser) : null);
-  // const [token, setToken] = useState(storedToken ? storedToken : null);
+  //set localStorage as default values of user/token
+  const storedUser = localStorage.getItem("user");
+  const storedToken = localStorage.getItem("token");
 
-  // set dispatch and values with Redux
+  // set dispatch and state values with Redux
   const dispatch = useDispatch();
   const { movies } = useSelector(state => state.movies);
+  const { user } = useSelector(state => state.user);
+  const { token } = useSelector(state => state.user);
+
+  if (storedUser) {
+    dispatch(setUser(storedUser));
+  };
+  if (storedToken) {
+    dispatch(setToken(storedToken));
+  };
 
   //fetch API data
   useEffect(() => {
@@ -56,8 +64,8 @@ export const MainView = () => {
 
   //logged out function
   const onLoggedOut = () => {
-    setUser(null);
-    setToken(null);
+    dispatch(setUser(null));
+    dispatch(setToken(null));
     localStorage.clear();
   };
   
@@ -68,7 +76,7 @@ export const MainView = () => {
   return (
     <BrowserRouter>
       <NavigationBar 
-        user={user} favorites={favorites} token={token} setUser={setUser}
+        favorites={favorites}
         onLoggedOut={onLoggedOut}
       />
       <Row>
@@ -99,8 +107,8 @@ export const MainView = () => {
                   <Col>
                     <LoginView
                       onLoggedIn={(user, token) => {
-                        setUser(user);
-                        setToken(token);
+                        dispatch(setUser(user));
+                        dispatch(setToken(token));
                       }}
                     />
                   </Col>
@@ -120,7 +128,7 @@ export const MainView = () => {
                   <Col>The list is empty!</Col>
                 ) : (
                   <Col>
-                    <MovieView user={user} favorites={favorites} token={token} setUser={setUser} />
+                    <MovieView favorites={favorites} />
                   </Col>
                 )}
               </>
@@ -140,7 +148,7 @@ export const MainView = () => {
                     {movies.map((movie) => {
                       return (
                         <Col xs={12} s={8} md={4} className="my-4" key={movie._id}>
-                          <MovieCard movie={movie} user={user} token={token} setUser={setUser} favorites={favorites} />
+                          <MovieCard movie={movie} favorites={favorites} />
                         </Col>
                       );
                     })}
@@ -158,7 +166,7 @@ export const MainView = () => {
                   <Navigate to="/login" />
                 ) : (
                   <Col>
-                    <ProfileView user={user} token={token} favorites={favorites} setUser={setUser} onLoggedOut={onLoggedOut} />
+                    <ProfileView favorites={favorites} onLoggedOut={onLoggedOut} />
                   </Col>
                 )}
               </>

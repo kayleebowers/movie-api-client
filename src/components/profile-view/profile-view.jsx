@@ -4,16 +4,14 @@ import { FavoriteMovies } from "./favorite-movies/favorite-movies";
 import { useEffect } from "react";
 import { Button, Card, Col, Container, Form, Row } from "react-bootstrap";
 import { useParams } from "react-router";
+import { useSelector } from "react-redux";
 
-export const ProfileView = ({
-  user,
-  token,
-  setUser,
-  setToken,
-  onLoggedOut,
-  favorites
-}) => {
+export const ProfileView = ({onLoggedOut, favorites}) => {
   const { username } = useParams();
+
+  // get state from redux
+  const { user } = useSelector(state => state.user);
+  const { token } = useSelector(state => state.user);
 
   //get current user data from users API
   useEffect(() => {
@@ -45,20 +43,15 @@ export const ProfileView = ({
     <>
       <Row className="d-flex justify-content-around">
         <Col xl={6} md={12} className="d-flex justify-content-center mh-60">
-          <ProfileInformation user={user} token={token} onLoggedOut={onLoggedOut} />
+          <ProfileInformation onLoggedOut={onLoggedOut} />
         </Col>
         <Col xl={6} md={12} className="d-flex justify-content-center align-item-center">
-          <ProfileUpdate
-            user={user}
-            token={token}
-            setUser={setUser}
-            setToken={setToken}
-          /> 
+          <ProfileUpdate /> 
         </Col>
       </Row>
       <Row>
         <Col>
-          <FavoriteMovies user={user} token={token} setUser={setUser}/>
+          <FavoriteMovies/>
         </Col>
       </Row>
     </>

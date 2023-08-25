@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 
-export const SearchBar = ({ user, favorites, token, setUser }) => {
+export const SearchBar = ({ favorites }) => {
   const { movies } = useSelector(state => state.movies);
 
   const [search, setSearch] = useState("");

@@ -6,8 +6,15 @@ import { Link } from "react-router-dom";
 import Heart from "react-animated-heart";
 import { useState } from "react";
 import "../../index.scss";
+import { useDispatch, useSelector } from "react-redux";
 
-export const MovieCard = ({ movie, user, token, setUser }) => {
+export const MovieCard = ({ movie }) => {
+
+  // get user, token state and dispatch from redux
+  const { user } = useSelector(state => state.user);
+  const { token } = useSelector(state => state.user);
+  const dispatch = useDispatch();
+
   const [isclick, setclick] = useState(false);
   const [isFavorite, setFavorite] = useState(user.Favorites.includes(movie.id));
 
@@ -26,7 +33,7 @@ export const MovieCard = ({ movie, user, token, setUser }) => {
         .json()
         .then((data) => {
           localStorage.setItem("user", JSON.stringify(data));
-          setUser(data);
+          dispatch(setUser(data));
           setFavorite(true);
         })
         .catch((error) => {
@@ -49,7 +56,7 @@ export const MovieCard = ({ movie, user, token, setUser }) => {
       .then((response) => response.json())
       .then((data) => {
         localStorage.setItem("user", JSON.stringify(data));
-        setUser(data);
+        dispatch(setUser(data));
         setFavorite(false);
       })
       .catch((error) => {

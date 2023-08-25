@@ -3,7 +3,7 @@ import { Col, Row, Button, Card } from "react-bootstrap";
 import { MovieCard } from "../../movie-card/movie-card";
 import { useSelector } from "react-redux";
 
-export const SimilarMovies = ({ movie, user, favorites, token, setUser }) => {
+export const SimilarMovies = ({ movie, favorites}) => {
     const { movies } = useSelector(state => state.movies);
 
     //filter movies by genre
@@ -22,9 +22,7 @@ export const SimilarMovies = ({ movie, user, favorites, token, setUser }) => {
         {similarMovies.map((movie) => {
             return (
             <Col xs={12} s={8} md={4} className="mt-4" key={movie._id}>
-                <MovieCard
-                movie={movie} user={user} favorites={favorites} token={token} setUser={setUser}
-                />
+                <MovieCard movie={movie} favorites={favorites} />
             </Col>
             );
         })}

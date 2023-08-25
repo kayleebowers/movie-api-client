@@ -1,7 +1,13 @@
 import { useState } from "react";
 import { Button, Card, Col, Form } from "react-bootstrap";
+import { useSelector, useDispatch } from "react-redux";
 
-export const ProfileUpdate = ({ user, token, setUser }) => {
+export const ProfileUpdate = () => {
+  // get state, dispatch from redux
+  const { user } = useSelector(state => state.user);
+  const { token } = useSelector(state => state.user);
+  const dispatch = useDispatch();
+
   const [username, setUsername] = useState(user.Username);
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState(user.Email);
@@ -36,7 +42,7 @@ export const ProfileUpdate = ({ user, token, setUser }) => {
       })
       .then((data) => {
         localStorage.setItem("user", JSON.stringify(data));
-        setUser(data);
+        dispatch(setUser(data));
       })
       .catch((error) => {
         console.error(error);
