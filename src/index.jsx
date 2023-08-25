@@ -1,9 +1,9 @@
 import { createRoot } from "react-dom/client";
-
 //import MainView component
 import Container from "react-bootstrap/Container";
-
 import { MainView } from "./components/main-view/main-view";
+import { Provider } from "react-redux";
+import store from "./redux/store";
 
 //import style sheets
 // import "bootstrap/dist/css/bootstrap.min.css";
@@ -12,9 +12,11 @@ import "./index.scss";
 //main component
 const App = () => {
   return (
-    <Container>
-      <MainView style={{fontFamily: "Quicksand"}} />
-    </Container>
+    <Provider store={store}>
+      <Container>
+        <MainView style={{fontFamily: "Quicksand"}} />
+      </Container>
+    </Provider>
   );
 };
 
