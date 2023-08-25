@@ -16,7 +16,7 @@ export const MovieCard = ({ movie }) => {
   const dispatch = useDispatch();
 
   const [isclick, setclick] = useState(false);
-  const [isFavorite, setFavorite] = useState(user.Favorites.includes(movie.id));
+  const [isFavorite, setFavorite] = useState(user.Favorites ? user.Favorites.includes(movie.id) : null);
 
   const addToFavorites = () => {
     fetch(
