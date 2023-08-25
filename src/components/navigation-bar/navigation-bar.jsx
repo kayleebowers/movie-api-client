@@ -3,15 +3,17 @@ import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import { Link } from "react-router-dom";
 import { SearchBar } from "../search-bar/search-bar";
+import { useSelector } from "react-redux";
 
 export const NavigationBar = ({
   user,
   onLoggedOut,
-  movies,
   favorites,
   token,
   setUser,
 }) => {
+  const { movies } = useSelector(state => state.movies);
+
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container fluid>
@@ -38,7 +40,6 @@ export const NavigationBar = ({
                 <div>
                   <div className="d-flex justify-content-end navSearch">
                     <SearchBar
-                      movies={movies}
                       user={user}
                       favorites={favorites}
                       token={token}

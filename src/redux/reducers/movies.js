@@ -3,11 +3,11 @@ import { createSlice } from "@reduxjs/toolkit";
 export const moviesSlice = createSlice({
     name: "movies",
     initialState: {
-        moviesList: []
+        movies: []
     },
     reducers: {
         setMovies: (state, action) => {
-            state.moviesList = action.payload;
+            state.movies = action.payload;
         }
     }
 });

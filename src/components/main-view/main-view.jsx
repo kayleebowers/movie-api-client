@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import { Row, Col } from "react-bootstrap";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { setMovies } from "../../redux/reducers/movies";
 
 //import child components
 import { MovieCard } from "../movie-card/movie-card";
@@ -19,7 +21,10 @@ export const MainView = () => {
 
   const [user, setUser] = useState(storedUser ? JSON.parse(storedUser) : null);
   const [token, setToken] = useState(storedToken ? storedToken : null);
-  const [movies, setMovies] = useState([]);
+
+  // set dispatch and values with Redux
+  const dispatch = useDispatch();
+  const { movies } = useSelector(state => state.movies);
 
   //fetch API data
   useEffect(() => {
@@ -45,7 +50,7 @@ export const MainView = () => {
             GenreDescription: movie.Genre.Description,
           };
         });
-        setMovies(moviesFromApi);
+        dispatch(setMovies(moviesFromApi));
       });
     //add token to dependency array so data only re-renders on token change
   }, [token]);
@@ -64,7 +69,7 @@ export const MainView = () => {
   return (
     <BrowserRouter>
       <NavigationBar 
-        user={user} movies={movies} favorites={favorites} token={token} setUser={setUser}
+        user={user} favorites={favorites} token={token} setUser={setUser}
         onLoggedOut={onLoggedOut}
       />
       <Row>
@@ -116,7 +121,7 @@ export const MainView = () => {
                   <Col>The list is empty!</Col>
                 ) : (
                   <Col>
-                    <MovieView movies={movies} user={user} favorites={favorites} token={token} setUser={setUser} />
+                    <MovieView user={user} favorites={favorites} token={token} setUser={setUser} />
                   </Col>
                 )}
               </>
@@ -154,7 +159,7 @@ export const MainView = () => {
                   <Navigate to="/login" />
                 ) : (
                   <Col>
-                    <ProfileView user={user} movies={movies} token={token} favorites={favorites} setUser={setUser} onLoggedOut={onLoggedOut} />
+                    <ProfileView user={user} token={token} favorites={favorites} setUser={setUser} onLoggedOut={onLoggedOut} />
                   </Col>
                 )}
               </>

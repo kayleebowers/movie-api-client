@@ -11,7 +11,6 @@ export const ProfileView = ({
   setUser,
   setToken,
   onLoggedOut,
-  movies,
   favorites
 }) => {
   const { username } = useParams();
@@ -59,7 +58,7 @@ export const ProfileView = ({
       </Row>
       <Row>
         <Col>
-          <FavoriteMovies user={user} movies={movies} token={token} setUser={setUser}/>
+          <FavoriteMovies user={user} token={token} setUser={setUser}/>
         </Col>
       </Row>
     </>

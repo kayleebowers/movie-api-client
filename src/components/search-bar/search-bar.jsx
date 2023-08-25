@@ -1,8 +1,11 @@
 import { Button, Row, Col, Card, Nav, Form } from "react-bootstrap";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
-export const SearchBar = ({ movies, user, favorites, token, setUser }) => {
+export const SearchBar = ({ user, favorites, token, setUser }) => {
+  const { movies } = useSelector(state => state.movies);
+
   const [search, setSearch] = useState("");
   const movie = movies.find(
     (movie) => {

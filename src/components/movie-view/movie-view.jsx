@@ -4,12 +4,15 @@ import { Col, Row, Button, Card } from "react-bootstrap";
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
 import {SimilarMovies} from "./similar-movies/similar-movies";
+import { useSelector } from "react-redux";
 import "./movie-view.scss";
 
 //display movie data 
-export const MovieView = ({ movies, user, favorites, token, setUser }) => {
+export const MovieView = ({user, favorites, token, setUser }) => {
   //returning /movies/:title object through useParams
   const { title } = useParams();
+  const { movies } = useSelector(state => state.movies);
+
   const movie = movies.find((movie) => movie.Title === title);
 
   return (
@@ -36,7 +39,7 @@ export const MovieView = ({ movies, user, favorites, token, setUser }) => {
           </Card.Footer>
         </Col>
       </Card>
-      <SimilarMovies movie={movie} movies={movies} user={user} favorites={favorites} token={token} setUser={setUser} />
+      <SimilarMovies movie={movie} user={user} favorites={favorites} token={token} setUser={setUser} />
     </>
   );
 };

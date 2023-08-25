@@ -1,8 +1,11 @@
 import React from "react";
 import { Col, Row, Button, Card } from "react-bootstrap";
 import { MovieCard } from "../../movie-card/movie-card";
+import { useSelector } from "react-redux";
 
-export const SimilarMovies = ({ movie, movies, user, favorites, token, setUser }) => {
+export const SimilarMovies = ({ movie, user, favorites, token, setUser }) => {
+    const { movies } = useSelector(state => state.movies);
+
     //filter movies by genre
     let similarMovies = movies.filter((m) => {
       if (m.Genre.Name == movie.Genre.Name && m.Title != movie.Title) {
