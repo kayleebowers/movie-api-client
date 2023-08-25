@@ -15,12 +15,11 @@ import { ProfileView } from "../profile-view/profile-view";
 export const MainView = () => {
   const api = "https://movies-app1-3d6bd65a6f09.herokuapp.com";
 
-  //set localStorage as default values of user/token
-  const storedUser = localStorage.getItem("user");
-  const storedToken = localStorage.getItem("token");
-
-  const [user, setUser] = useState(storedUser ? JSON.parse(storedUser) : null);
-  const [token, setToken] = useState(storedToken ? storedToken : null);
+  // //set localStorage as default values of user/token
+  // const storedUser = localStorage.getItem("user");
+  // const storedToken = localStorage.getItem("token");
+  // const [user, setUser] = useState(storedUser ? JSON.parse(storedUser) : null);
+  // const [token, setToken] = useState(storedToken ? storedToken : null);
 
   // set dispatch and values with Redux
   const dispatch = useDispatch();
