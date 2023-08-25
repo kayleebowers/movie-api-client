@@ -72,16 +72,10 @@ export const MainView = () => {
     localStorage.clear();
   };
   
-  //define favorites
-  let favorites = ["test"];
-
   //return list of movies
   return (
     <BrowserRouter>
-      <NavigationBar 
-        favorites={favorites}
-        onLoggedOut={onLoggedOut}
-      />
+      <NavigationBar onLoggedOut={onLoggedOut} />
       <Row>
         <Routes>
           {/* route to SignUpView */}
@@ -131,7 +125,7 @@ export const MainView = () => {
                   <Col>The list is empty!</Col>
                 ) : (
                   <Col>
-                    <MovieView favorites={favorites} />
+                    <MovieView />
                   </Col>
                 )}
               </>
@@ -151,7 +145,7 @@ export const MainView = () => {
                     {movies.map((movie) => {
                       return (
                         <Col xs={12} s={8} md={4} className="my-4" key={movie._id}>
-                          <MovieCard movie={movie} favorites={favorites} />
+                          <MovieCard movie={movie} />
                         </Col>
                       );
                     })}
@@ -169,7 +163,7 @@ export const MainView = () => {
                   <Navigate to="/login" />
                 ) : (
                   <Col>
-                    <ProfileView favorites={favorites} onLoggedOut={onLoggedOut} />
+                    <ProfileView onLoggedOut={onLoggedOut} />
                   </Col>
                 )}
               </>

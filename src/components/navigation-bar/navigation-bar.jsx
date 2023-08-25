@@ -6,7 +6,6 @@ import { SearchBar } from "../search-bar/search-bar";
 import { useSelector } from "react-redux";
 
 export const NavigationBar = ({onLoggedOut, favorites}) => {
-  const { movies } = useSelector(state => state.movies);
   const { user } = useSelector(state => state.user);
 
   return (
