@@ -26,6 +26,7 @@ export const MainView = () => {
   const { user } = useSelector(state => state.user);
   const { token } = useSelector(state => state.user);
 
+  // set token and user state if stored
   useEffect(() => {
     if (storedUser) {
       dispatch(setUser(JSON.parse(storedUser)));
@@ -33,7 +34,7 @@ export const MainView = () => {
     if (storedToken) {
       dispatch(setToken(storedToken));
     };
-  }, [])
+  }, []);
 
   //fetch API data
   useEffect(() => {
